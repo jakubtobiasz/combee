@@ -1,0 +1,17 @@
+{
+    "name": "alphpaca/combee",
+    "description": "A next-generation e-commerce engine powered by cutting-edge technology",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Combee\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jacob Tobiasz",
+            "email": "jacob@alphpaca.io"
+        }
+    ],
+    "require": {}
+}
