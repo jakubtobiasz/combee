@@ -13,5 +13,7 @@
             "email": "jacob@alphpaca.io"
         }
     ],
-    "require": {}
+    "require": {
+      "php": "^8.4"
+    }
 }
