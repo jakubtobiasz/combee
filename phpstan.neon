@@ -1,5 +1,14 @@
+includes:
+    - tools/phpstan/vendor/phpat/phpat/extension.neon
+
 parameters:
 	level: 8
 	paths:
 		- src
 		- tests
+
+services:
+    -
+        class: Tests\Architecture\ProductCatalogTest
+        tags:
+            - phpat.test

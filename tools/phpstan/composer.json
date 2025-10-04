@@ -1,6 +1,7 @@
 {
   "require-dev": {
-      "phpstan/phpstan": "^2.1"
+    "phpat/phpat": "*",
+    "phpstan/phpstan": "^2.1"
   },
   "config": {
     "bin-dir": "../bin"

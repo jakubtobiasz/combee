@@ -4,6 +4,8 @@ namespace Combee\Core\ProductCatalog\Integration\Ordering\Provider;
 
 use Combee\Core\Ordering\Contract\DataObject\ProductData;
 use Combee\Core\Ordering\Contract\Provider\ProductDataProviderContract;
+use Combee\Core\Ordering\Model\Order;
+use Combee\Core\ProductCatalog\Integration\Dummy\Dummy;
 
 /**
  * @final
