@@ -1,0 +1,8 @@
+{
+  "require-dev": {
+      "friendsofphp/php-cs-fixer": "^3.88"
+  },
+  "config": {
+    "bin-dir": "../../bin"
+  }
+}

@@ -12,7 +12,7 @@ class ProductDataProvider implements ProductDataProviderContract
 {
     public function getProductData(string $sku): ProductData
     {
-        return new class implements ProductData {
+        return new class () implements ProductData {
             public string $sku = 'sku';
 
             public string $name = 'name';
