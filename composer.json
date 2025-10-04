@@ -1,19 +1,35 @@
 {
-    "name": "alphpaca/combee",
-    "description": "A next-generation e-commerce engine powered by cutting-edge technology",
-    "type": "library",
-    "autoload": {
-        "psr-4": {
-            "Combee\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Jacob Tobiasz",
-            "email": "jacob@alphpaca.io"
-        }
-    ],
-    "require": {
-      "php": "^8.4"
+  "name": "alphpaca/combee",
+  "description": "A next-generation e-commerce engine powered by cutting-edge technology",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Combee\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Jacob Tobiasz",
+      "email": "jacob@alphpaca.io"
+    }
+  ],
+  "require": {
+    "php": "^8.4"
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "@update-tools"
+    ],
+    "update-tools": [
+      "@update-tools:php-cs-fixer",
+      "@update-tools:phpunit"
+    ],
+    "update-tools:php-cs-fixer": "composer update -n -d tools/php-cs-fixer",
+    "update-tools:phpunit": "composer update -n -d tools/phpunit"
+  }
 }
