@@ -19,7 +19,8 @@
     }
   ],
   "require": {
-    "php": "^8.4"
+    "php": "^8.4",
+    "ramsey/uuid": "^4.9"
   },
   "scripts": {
     "post-update-cmd": [

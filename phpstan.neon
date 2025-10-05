@@ -2,10 +2,12 @@ includes:
     - tools/phpstan/vendor/phpat/phpat/extension.neon
 
 parameters:
-	level: 8
-	paths:
-		- src
-		- tests
+    level: 8
+    paths:
+        - src
+        - tests
+    scanDirectories:
+        - tools/phpunit/vendor
 
 services:
     -

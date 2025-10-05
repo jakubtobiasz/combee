@@ -14,7 +14,10 @@ final class ProductCatalogTest
             ->classes(Selector::inNamespace('Combee\Core\ProductCatalog'))
             ->excluding(Selector::inNamespace('Combee\Core\ProductCatalog\Integration'))
             ->canOnlyDependOn()
-            ->classes(Selector::inNamespace('Combee\Core\ProductCatalog'))
+            ->classes(
+                Selector::inNamespace('Combee\Core\ProductCatalog'),
+                Selector::inNamespace('Ramsey\Uuid'),
+            )
             ->because('Product catalog should not depend on other modules')
         ;
     }

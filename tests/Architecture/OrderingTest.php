@@ -13,7 +13,10 @@ final class OrderingTest
         return PHPat::rule()
             ->classes(Selector::inNamespace('Combee\Core\Ordering'))
             ->canOnlyDependOn()
-            ->classes(Selector::inNamespace('Combee\Core\Ordering'))
+            ->classes(
+                Selector::inNamespace('Combee\Core\Ordering'),
+                Selector::inNamespace('Ramsey\Uuid'),
+            )
             ->because('Ordering should not depend on other modules')
         ;
     }
