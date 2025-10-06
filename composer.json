@@ -26,6 +26,9 @@
     "post-update-cmd": [
       "@update-tools"
     ],
+    "post-install-cmd": [
+      "@update-tools"
+    ],
     "update-tools": [
       "@update-tools:php-cs-fixer",
       "@update-tools:phpstan",

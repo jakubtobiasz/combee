@@ -40,7 +40,7 @@ final class AddProductToCartHandlerTest extends TestCase
 
         $this->cartStorage->method('get')->with($cartUuid)->willReturn($cart);
 
-        $productData = new class implements ProductData {
+        $productData = new class () implements ProductData {
             public string $sku { get => 'OMG'; }
         };
 

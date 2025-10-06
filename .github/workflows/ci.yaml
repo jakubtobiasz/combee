@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  pull_request: ~
+  push: ~
+
+jobs:
+  ci:
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Check coding standard
+        run: |
+          tools/bin/php-cs-fixer check src
+          tools/bin/php-cs-fixer check tests
+
+      - name: Run static analysis
+        run: tools/bin/phpstan
+
+      - name: Run unit tests
+        run: tools/bin/phpunit
