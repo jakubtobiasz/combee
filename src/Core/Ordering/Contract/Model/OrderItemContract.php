@@ -4,4 +4,5 @@ namespace Combee\Core\Ordering\Contract\Model;
 
 interface OrderItemContract
 {
+    public string $productSku { get; }
 }

@@ -4,20 +4,20 @@ namespace Combee\Core\ProductCatalog\Integration\Ordering\Provider;
 
 use Combee\Core\Ordering\Contract\DataObject\ProductData;
 use Combee\Core\Ordering\Contract\Provider\ProductDataProviderContract;
-use Combee\Core\Ordering\Model\Order;
-use Combee\Core\ProductCatalog\Integration\Dummy\Dummy;
 
 /**
  * @final
  */
 class ProductDataProvider implements ProductDataProviderContract
 {
-    public function getProductData(string $sku): ProductData
+    public function getProductData(string $sku): ?ProductData
     {
+        if ($sku === 'WOW') {
+            return null;
+        }
+
         return new class () implements ProductData {
             public string $sku = 'sku';
-
-            public string $name = 'name';
         };
     }
 }

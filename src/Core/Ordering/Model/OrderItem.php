@@ -9,6 +9,7 @@ class OrderItem implements OrderItemContract
 {
     public function __construct(
         public readonly UuidInterface $uuid,
+        public readonly string $productSku,
     ) {
     }
 }

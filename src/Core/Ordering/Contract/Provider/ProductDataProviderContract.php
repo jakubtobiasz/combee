@@ -6,5 +6,5 @@ use Combee\Core\Ordering\Contract\DataObject\ProductData;
 
 interface ProductDataProviderContract
 {
-    public function getProductData(string $sku): ProductData;
+    public function getProductData(string $sku): ?ProductData;
 }
