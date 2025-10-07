@@ -2,7 +2,9 @@
 
 namespace Combee\ProductCatalog\Contract\Model;
 
-interface ProductContract
+use Combee\Core\Contract\Priceable;
+
+interface ProductContract extends Priceable
 {
     public string $sku { get; }
 }

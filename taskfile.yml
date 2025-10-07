@@ -1,0 +1,31 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  cs:
+    cmds:
+      - tools/bin/php-cs-fixer check
+    silent: true
+
+  cs.fix:
+    cmds:
+      - tools/bin/php-cs-fixer fix
+    silent: true
+
+  phpstan:
+    cmds:
+      - tools/bin/phpstan analyse
+    silent: true
+
+  phpunit:
+    cmds:
+      - tools/bin/phpunit
+    silent: true
+
+  ci:
+    cmds:
+      - task: cs
+      - task: phpstan
+      - task: phpunit
+    silent: true
