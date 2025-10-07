@@ -2,7 +2,7 @@
 
 namespace Combee\Core\ProductCatalog\Model;
 
-use Combee\Core\ProductCatalog\Model\Order\Contract\ProductContract;
+use Combee\Core\ProductCatalog\Contract\Model\ProductContract;
 use Ramsey\Uuid\UuidInterface;
 
 class Product implements ProductContract
