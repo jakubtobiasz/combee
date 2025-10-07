@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Unit\Ordering\Command\Handler;
+namespace Tests\Unit\Ordering\Application\Command\Handler;
 
-use Combee\Ordering\Command\AddProductToCart;
-use Combee\Ordering\Command\Handler\AddProductToCartHandler;
-use Combee\Ordering\Command\Handler\Exception\ProductNotFoundException;
+use Combee\Ordering\Application\Command\AddProductToCart;
+use Combee\Ordering\Application\Command\Handler\AddProductToCartHandler;
+use Combee\Ordering\Application\Command\Handler\Exception\ProductNotFoundException;
 use Combee\Ordering\Contract\DataObject\ProductData;
 use Combee\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
 use Combee\Ordering\Contract\Model\Factory\OrderItemFactoryContract;

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Ordering\Command;
+namespace Combee\Ordering\Application\Command;
 
 use Combee\Ordering\Contract\Command\AddProductToCartContract;
 use Combee\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;

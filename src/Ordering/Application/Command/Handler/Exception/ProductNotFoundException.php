@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Ordering\Command\Handler\Exception;
+namespace Combee\Ordering\Application\Command\Handler\Exception;
 
 class ProductNotFoundException extends \InvalidArgumentException
 {

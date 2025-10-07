@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Ordering\Command\Handler;
+namespace Combee\Ordering\Application\Command\Handler;
 
-use Combee\Ordering\Command\Handler\Exception\CartNotFoundException;
-use Combee\Ordering\Command\Handler\Exception\ProductNotFoundException;
+use Combee\Ordering\Application\Command\Handler\Exception\CartNotFoundException;
+use Combee\Ordering\Application\Command\Handler\Exception\ProductNotFoundException;
 use Combee\Ordering\Contract\Command\AddProductToCartContract;
 use Combee\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
 use Combee\Ordering\Contract\Provider\ProductDataProviderContract;
