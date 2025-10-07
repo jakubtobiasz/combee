@@ -21,7 +21,8 @@
   "require": {
     "php": "^8.4",
     "ramsey/uuid": "^4.9",
-    "doctrine/collections": "^2.3"
+    "doctrine/collections": "^2.3",
+    "moneyphp/money": "^4.7"
   },
   "scripts": {
     "post-update-cmd": [
