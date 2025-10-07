@@ -2,6 +2,7 @@
 
 namespace Combee\Core\Ordering\Contract\Command;
 
+use Combee\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
 use Ramsey\Uuid\UuidInterface;
 
 interface AddProductToCartContract
@@ -12,4 +13,7 @@ interface AddProductToCartContract
 
     /** @var positive-int */
     public int $quantity { get; }
+
+    /** @var class-string<AddItemStrategyContract> */
+    public string $strategy { get; }
 }

@@ -10,5 +10,5 @@ interface AddItemStrategyContract
     /**
      * @param Collection<array-key, OrderItemContract> $items
      */
-    public function addItem(Collection $items, OrderItemContract $item): void;
+    public function addItem(Collection $items, OrderItemContract $newItem): void;
 }
