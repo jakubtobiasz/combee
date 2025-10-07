@@ -1,13 +1,16 @@
 includes:
     - tools/phpstan/vendor/phpat/phpat/extension.neon
+    - tools/phpstan/vendor/phpstan/phpstan-doctrine/extension.neon
+    - tools/phpstan/vendor/phpstan/phpstan-phpunit/extension.neon
+    - tools/phpstan/vendor/phpstan/phpstan-phpunit/rules.neon
 
 parameters:
     level: 8
     paths:
         - src
         - tests
-    scanDirectories:
-        - tools/phpunit/vendor
+    bootstrapFiles:
+        - tools/phpunit/vendor/autoload.php
 
 services:
     -

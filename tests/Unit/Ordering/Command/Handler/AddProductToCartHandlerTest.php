@@ -6,6 +6,7 @@ use Combee\Core\Ordering\Command\AddProductToCart;
 use Combee\Core\Ordering\Command\Handler\AddProductToCartHandler;
 use Combee\Core\Ordering\Command\Handler\Exception\ProductNotFoundException;
 use Combee\Core\Ordering\Contract\DataObject\ProductData;
+use Combee\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
 use Combee\Core\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
 use Combee\Core\Ordering\Contract\Model\OrderContract;
 use Combee\Core\Ordering\Contract\Model\OrderItemContract;
@@ -50,7 +51,7 @@ final class AddProductToCartHandlerTest extends TestCase
 
         $this->orderItemFactory->method('createFromProductData')->with($productData, 2)->willReturn($cartItem);
 
-        $cart->expects($this->once())->method('addItem')->with($cartItem);
+        $cart->expects($this->once())->method('addItem')->with($cartItem, $this->isInstanceOf(AddItemStrategyContract::class));
 
         new AddProductToCartHandler($this->productDataProvider, $this->cartStorage, $this->orderItemFactory)
             ->__invoke($command)

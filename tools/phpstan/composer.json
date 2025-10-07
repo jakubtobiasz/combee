@@ -1,7 +1,9 @@
 {
   "require-dev": {
     "phpat/phpat": "*",
-    "phpstan/phpstan": "^2.1"
+    "phpstan/phpstan": "^2.1",
+    "phpstan/phpstan-doctrine": "^2.0",
+    "phpstan/phpstan-phpunit": "^2.0"
   },
   "config": {
     "bin-dir": "../bin"

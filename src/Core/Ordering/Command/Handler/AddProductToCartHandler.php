@@ -8,6 +8,7 @@ use Combee\Core\Ordering\Contract\Command\AddProductToCartContract;
 use Combee\Core\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
 use Combee\Core\Ordering\Contract\Provider\ProductDataProviderContract;
 use Combee\Core\Ordering\Contract\Storage\CartStorageContract;
+use Combee\Core\Ordering\Model\AddItemStrategy\AddAsNewItemStrategy;
 
 readonly class AddProductToCartHandler
 {
@@ -28,7 +29,7 @@ readonly class AddProductToCartHandler
 
         $orderItem = $this->orderItemFactory->createFromProductData($product, $command->quantity);
 
-        $cart->addItem($orderItem);
+        $cart->addItem($orderItem, new AddAsNewItemStrategy());
 
         $this->cartStorage->save($cart);
     }

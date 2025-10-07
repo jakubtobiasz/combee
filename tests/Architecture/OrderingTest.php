@@ -15,6 +15,7 @@ final class OrderingTest
             ->canOnlyDependOn()
             ->classes(
                 Selector::inNamespace('Combee\Core\Ordering'),
+                Selector::inNamespace('Doctrine\Common\Collections'),
                 Selector::inNamespace('Ramsey\Uuid'),
             )
             ->because('Ordering should not depend on other modules')
