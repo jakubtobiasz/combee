@@ -2,16 +2,16 @@
 
 namespace Tests\Unit\Ordering\Command\Handler;
 
-use Combee\Core\Ordering\Command\AddProductToCart;
-use Combee\Core\Ordering\Command\Handler\AddProductToCartHandler;
-use Combee\Core\Ordering\Command\Handler\Exception\ProductNotFoundException;
-use Combee\Core\Ordering\Contract\DataObject\ProductData;
-use Combee\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
-use Combee\Core\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
-use Combee\Core\Ordering\Contract\Model\OrderContract;
-use Combee\Core\Ordering\Contract\Model\OrderItemContract;
-use Combee\Core\Ordering\Contract\Provider\ProductDataProviderContract;
-use Combee\Core\Ordering\Contract\Storage\CartStorageContract;
+use Combee\Ordering\Command\AddProductToCart;
+use Combee\Ordering\Command\Handler\AddProductToCartHandler;
+use Combee\Ordering\Command\Handler\Exception\ProductNotFoundException;
+use Combee\Ordering\Contract\DataObject\ProductData;
+use Combee\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
+use Combee\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
+use Combee\Ordering\Contract\Model\OrderContract;
+use Combee\Ordering\Contract\Model\OrderItemContract;
+use Combee\Ordering\Contract\Provider\ProductDataProviderContract;
+use Combee\Ordering\Contract\Storage\CartStorageContract;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;

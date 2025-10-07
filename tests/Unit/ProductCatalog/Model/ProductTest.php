@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\ProductCatalog\Model;
 
-use Combee\Core\ProductCatalog\Model\Product;
+use Combee\ProductCatalog\Model\Product;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;

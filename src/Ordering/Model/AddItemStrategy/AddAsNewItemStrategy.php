@@ -1,0 +1,15 @@
+<?php declare(strict_types=1);
+
+namespace Combee\Ordering\Model\AddItemStrategy;
+
+use Combee\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
+use Combee\Ordering\Contract\Model\OrderItemContract;
+use Doctrine\Common\Collections\Collection;
+
+final readonly class AddAsNewItemStrategy implements AddItemStrategyContract
+{
+    public function addItem(Collection $items, OrderItemContract $newItem): void
+    {
+        $items->add($newItem);
+    }
+}

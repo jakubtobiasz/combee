@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Ordering\Model\AddItemStrategy;
 
-use Combee\Core\Ordering\Contract\Model\OrderItemContract;
-use Combee\Core\Ordering\Model\AddItemStrategy\MergeSameSkuItemsStrategy;
+use Combee\Ordering\Contract\Model\OrderItemContract;
+use Combee\Ordering\Model\AddItemStrategy\MergeSameSkuItemsStrategy;
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

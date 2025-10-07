@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Ordering\Model;
 
-use Combee\Core\Ordering\Model\Exception\NegativeOrZeroQuantityException;
-use Combee\Core\Ordering\Model\OrderItem;
+use Combee\Ordering\Model\Exception\NegativeOrZeroQuantityException;
+use Combee\Ordering\Model\OrderItem;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

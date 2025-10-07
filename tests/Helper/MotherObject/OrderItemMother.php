@@ -2,7 +2,7 @@
 
 namespace Tests\Helper\MotherObject;
 
-use Combee\Core\Ordering\Model\OrderItem;
+use Combee\Ordering\Model\OrderItem;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
