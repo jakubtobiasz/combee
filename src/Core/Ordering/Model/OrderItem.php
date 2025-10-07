@@ -3,6 +3,7 @@
 namespace Combee\Core\Ordering\Model;
 
 use Combee\Core\Ordering\Contract\Model\OrderItemContract;
+use Combee\Core\Ordering\Model\Exception\NegativeOrZeroQuantityException;
 use Ramsey\Uuid\UuidInterface;
 
 class OrderItem implements OrderItemContract
@@ -11,8 +12,14 @@ class OrderItem implements OrderItemContract
         public readonly UuidInterface $uuid,
         public readonly string $productSku,
         public int $quantity {
-            get => $this->quantity;
-            set => $this->quantity = max(1, $value);
+            get {
+                return $this->quantity;
+            }
+            set {
+                NegativeOrZeroQuantityException::throwIfNegativeOrZero($value);
+
+                $this->quantity = $value;
+            }
         },
     ) {
     }
