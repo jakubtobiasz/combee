@@ -2,12 +2,18 @@
 
 namespace Combee\Core\Ordering\Contract\Model;
 
+use Combee\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
+use Doctrine\Common\Collections\Collection;
+use Ramsey\Uuid\UuidInterface;
+
 interface OrderContract
 {
-    public function addItem(OrderItemContract $item): void;
+    public UuidInterface $uuid { get; }
 
-    /**
-     * @return array<OrderItemContract>
-     */
-    public function getItems(): array;
+    /** @var Collection<array-key, OrderItemContract> */
+    public Collection $items { get; }
+
+    public string $state { get; }
+
+    public function addItem(OrderItemContract $item, AddItemStrategyContract $addItemStrategy): void;
 }

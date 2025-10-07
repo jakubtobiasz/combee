@@ -20,7 +20,8 @@
   ],
   "require": {
     "php": "^8.4",
-    "ramsey/uuid": "^4.9"
+    "ramsey/uuid": "^4.9",
+    "doctrine/collections": "^2.3"
   },
   "scripts": {
     "post-update-cmd": [
