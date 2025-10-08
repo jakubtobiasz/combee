@@ -2,13 +2,13 @@
 
 namespace Combee\Ordering\Contract\Model;
 
+use Combee\Core\Model\Identifier\OrderIdentifier;
 use Combee\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
 use Doctrine\Common\Collections\Collection;
-use Ramsey\Uuid\UuidInterface;
 
 interface OrderContract
 {
-    public UuidInterface $uuid { get; }
+    public OrderIdentifier $uuid { get; }
 
     /** @var Collection<array-key, OrderItemContract> */
     public Collection $items { get; }

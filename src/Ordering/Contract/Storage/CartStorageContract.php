@@ -2,12 +2,12 @@
 
 namespace Combee\Ordering\Contract\Storage;
 
+use Combee\Core\Model\Identifier\OrderIdentifier;
 use Combee\Ordering\Contract\Model\OrderContract;
-use Ramsey\Uuid\UuidInterface;
 
 interface CartStorageContract
 {
-    public function get(UuidInterface $cartUuid): ?OrderContract;
+    public function get(OrderIdentifier $cartUuid): ?OrderContract;
 
     public function save(OrderContract $cart): void;
 }

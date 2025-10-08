@@ -2,15 +2,15 @@
 
 namespace Combee\ProductCatalog\Model;
 
+use Combee\Core\Model\Identifier\ProductIdentifier;
 use Combee\ProductCatalog\Contract\Model\ProductContract;
 use Combee\ProductCatalog\Model\Exception\NegativeOrZeroPriceException;
 use Money\Money;
-use Ramsey\Uuid\UuidInterface;
 
 class Product implements ProductContract
 {
     public function __construct(
-        public readonly UuidInterface $uuid,
+        public readonly ProductIdentifier $uuid,
         public readonly string $sku,
         public Money $price {
             get => $this->price;

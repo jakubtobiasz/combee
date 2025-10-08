@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\Ordering\Application\Command\Handler;
 
+use Combee\Core\Model\Identifier\OrderIdentifier;
 use Combee\Ordering\Application\Command\AddProductToCart;
 use Combee\Ordering\Application\Command\Handler\AddProductToCartHandler;
 use Combee\Ordering\Application\Command\Handler\Exception\ProductNotFoundException;
@@ -16,7 +17,6 @@ use Money\Money;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Ramsey\Uuid\Uuid;
 
 final class AddProductToCartHandlerTest extends TestCase
 {
@@ -36,7 +36,7 @@ final class AddProductToCartHandlerTest extends TestCase
     #[Test]
     public function it_adds_product_to_cart(): void
     {
-        $command = new AddProductToCart($cartUuid = Uuid::uuid4(), 'OMG', 2);
+        $command = new AddProductToCart($cartUuid = OrderIdentifier::new(), 'OMG', 2);
 
         $cart = $this->createMock(OrderContract::class);
 
@@ -64,7 +64,7 @@ final class AddProductToCartHandlerTest extends TestCase
     #[Test]
     public function it_throws_exception_if_cart_not_found(): void
     {
-        $command = new AddProductToCart($cartUuid = Uuid::uuid4(), 'OMG', 2);
+        $command = new AddProductToCart($cartUuid = OrderIdentifier::new(), 'OMG', 2);
 
         $this->cartStorage->method('get')->with($cartUuid)->willReturn(null);
 
@@ -79,7 +79,7 @@ final class AddProductToCartHandlerTest extends TestCase
     #[Test]
     public function it_throws_exception_if_product_not_found(): void
     {
-        $command = new AddProductToCart($cartUuid = Uuid::uuid4(), 'OMG', 2);
+        $command = new AddProductToCart($cartUuid = OrderIdentifier::new(), 'OMG', 2);
 
         $cart = $this->createMock(OrderContract::class);
 

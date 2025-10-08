@@ -2,14 +2,14 @@
 
 namespace Combee\Ordering\Model;
 
+use Combee\Core\Model\Identifier\OrderItemIdentifier;
 use Combee\Ordering\Contract\Model\OrderItemContract;
 use Combee\Ordering\Model\Exception\NegativeOrZeroQuantityException;
-use Ramsey\Uuid\UuidInterface;
 
 class OrderItem implements OrderItemContract
 {
     public function __construct(
-        public readonly UuidInterface $uuid,
+        public readonly OrderItemIdentifier $uuid,
         public readonly string $productSku,
         public int $quantity {
             get {
