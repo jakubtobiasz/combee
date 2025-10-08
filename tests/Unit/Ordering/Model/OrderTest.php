@@ -5,19 +5,18 @@ namespace Tests\Unit\Ordering\Model;
 use Combee\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
 use Combee\Ordering\Contract\Model\Exception\OrderSealedException;
 use Combee\Ordering\Contract\Model\OrderItemContract;
-use Combee\Ordering\Model\Order;
-use Combee\Ordering\Model\OrderItem;
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use Ramsey\Uuid\Uuid;
+use Tests\Helper\MotherObject\OrderItemMother;
+use Tests\Helper\MotherObject\OrderMother;
 
 final class OrderTest extends TestCase
 {
     #[Test]
     public function it_can_be_created(): void
     {
-        $order = new Order(Uuid::uuid4(), new ArrayCollection());
+        $order = OrderMother::some();
 
         $this->expectNotToPerformAssertions();
     }
@@ -26,9 +25,9 @@ final class OrderTest extends TestCase
     public function it_can_be_created_with_items(): void
     {
         /** @var ArrayCollection<array-key, OrderItemContract> $items */
-        $items = new ArrayCollection([new OrderItem(Uuid::uuid4(), 'OMG', 1), new OrderItem(Uuid::uuid4(), 'LOL', 1)]);
+        $items = new ArrayCollection([OrderItemMother::some(productSku: 'OMGG'), OrderItemMother::some(productSku: 'LOL')]);
 
-        $order = new Order(Uuid::uuid4(), $items);
+        $order = OrderMother::some(items: $items);
 
         $this->assertSame($items, $order->items);
     }
@@ -36,7 +35,7 @@ final class OrderTest extends TestCase
     #[Test]
     public function it_allows_to_add_items_using_strategy(): void
     {
-        $order = new Order(Uuid::uuid4(), $items = new ArrayCollection());
+        $order = OrderMother::some(items: $items = new ArrayCollection());
 
         $orderItem = $this->createMock(OrderItemContract::class);
 
@@ -54,7 +53,7 @@ final class OrderTest extends TestCase
 
         $orderItem = $this->createMock(OrderItemContract::class);
 
-        new Order(Uuid::uuid4(), new ArrayCollection(), state: 'placed')->addItem(
+        OrderMother::some(state: 'placed')->addItem(
             $orderItem,
             $this->createMock(AddItemStrategyContract::class),
         );

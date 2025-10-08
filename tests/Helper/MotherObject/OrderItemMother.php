@@ -2,14 +2,14 @@
 
 namespace Tests\Helper\MotherObject;
 
+use Combee\Core\Model\Identifier\OrderItemIdentifier;
+use Combee\Ordering\Contract\Model\OrderItemContract;
 use Combee\Ordering\Model\OrderItem;
-use Ramsey\Uuid\Uuid;
-use Ramsey\Uuid\UuidInterface;
 
 class OrderItemMother
 {
-    public static function some(?UuidInterface $uuid = null, string $productSku = 'OMG', int $quantity = 1): OrderItem
+    public static function some(?OrderItemIdentifier $uuid = null, string $productSku = 'OMG', int $quantity = 1): OrderItemContract
     {
-        return new OrderItem($uuid ?? Uuid::uuid4(), $productSku, $quantity);
+        return new OrderItem($uuid ?? OrderItemIdentifier::new(), $productSku, $quantity);
     }
 }

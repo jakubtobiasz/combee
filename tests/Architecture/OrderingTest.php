@@ -11,13 +11,13 @@ final class OrderingTest
     public function test_ordering_depends_only_on_its_own_classes(): Rule
     {
         return PHPat::rule()
-            ->classes(Selector::inNamespace('Combee\Core\Ordering'))
+            ->classes(Selector::inNamespace('Combee\Ordering'))
             ->canOnlyDependOn()
             ->classes(
-                Selector::inNamespace('Combee\Core\Ordering'),
+                Selector::inNamespace('Combee\Core'),
+                Selector::inNamespace('Combee\Ordering'),
                 Selector::inNamespace('Doctrine\Common\Collections'),
                 Selector::inNamespace('Money'),
-                Selector::inNamespace('Ramsey\Uuid'),
             )
             ->because('Ordering should not depend on other modules')
         ;

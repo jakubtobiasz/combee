@@ -2,11 +2,11 @@
 
 namespace Combee\Ordering\Contract\Model;
 
-use Ramsey\Uuid\UuidInterface;
+use Combee\Core\Model\Identifier\OrderItemIdentifier;
 
 interface OrderItemContract
 {
-    public UuidInterface $uuid { get; }
+    public OrderItemIdentifier $uuid { get; }
 
     public string $productSku { get; }
 

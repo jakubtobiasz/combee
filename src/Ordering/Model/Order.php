@@ -2,12 +2,12 @@
 
 namespace Combee\Ordering\Model;
 
+use Combee\Core\Model\Identifier\OrderIdentifier;
 use Combee\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
 use Combee\Ordering\Contract\Model\Exception\OrderSealedException;
 use Combee\Ordering\Contract\Model\OrderContract;
 use Combee\Ordering\Contract\Model\OrderItemContract;
 use Doctrine\Common\Collections\Collection;
-use Ramsey\Uuid\UuidInterface;
 
 class Order implements OrderContract
 {
@@ -15,7 +15,7 @@ class Order implements OrderContract
      * @param Collection<array-key, OrderItemContract> $items
      */
     public function __construct(
-        public readonly UuidInterface $uuid,
+        public readonly OrderIdentifier $uuid,
         public Collection $items {
             get => $this->items;
         },

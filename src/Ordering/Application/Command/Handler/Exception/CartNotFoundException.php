@@ -2,14 +2,14 @@
 
 namespace Combee\Ordering\Application\Command\Handler\Exception;
 
-use Ramsey\Uuid\UuidInterface;
+use Combee\Core\Model\Identifier\OrderIdentifier;
 
 class CartNotFoundException extends \InvalidArgumentException
 {
     /**
      * @phpstan-assert !null $value
      */
-    public static function throwIfNull(mixed $value, UuidInterface $cartUuid): void
+    public static function throwIfNull(mixed $value, OrderIdentifier $cartUuid): void
     {
         if ($value === null) {
             throw new self(

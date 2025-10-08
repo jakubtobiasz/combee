@@ -5,19 +5,18 @@ declare(strict_types=1);
 namespace Tests\Unit\ProductCatalog\Model;
 
 use Combee\ProductCatalog\Model\Exception\NegativeOrZeroPriceException;
-use Combee\ProductCatalog\Model\Product;
 use Money\Money;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use Ramsey\Uuid\Uuid;
+use Tests\Helper\MotherObject\ProductMother;
 
 final class ProductTest extends TestCase
 {
     #[Test]
     public function it_can_be_created(): void
     {
-        $product = new Product(Uuid::uuid4(), 'OMG', Money::PLN(150));
+        $product = ProductMother::some();
 
         $this->expectNotToPerformAssertions();
     }
@@ -29,7 +28,7 @@ final class ProductTest extends TestCase
         $this->expectException(NegativeOrZeroPriceException::class);
         $this->expectExceptionMessage('Price must be greater than zero.');
 
-        $product = new Product(Uuid::uuid4(), 'OMG', $price);
+        $product = ProductMother::some(price: $price);
     }
 
     #[Test]
@@ -39,7 +38,7 @@ final class ProductTest extends TestCase
         $this->expectException(NegativeOrZeroPriceException::class);
         $this->expectExceptionMessage('Price must be greater than zero.');
 
-        $product = new Product(Uuid::uuid4(), 'OMG', Money::PLN(150));
+        $product = ProductMother::some();
         $product->price = $price;
     }
 

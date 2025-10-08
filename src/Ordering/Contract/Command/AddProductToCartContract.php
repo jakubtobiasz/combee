@@ -2,12 +2,12 @@
 
 namespace Combee\Ordering\Contract\Command;
 
+use Combee\Core\Model\Identifier\OrderIdentifier;
 use Combee\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
-use Ramsey\Uuid\UuidInterface;
 
 interface AddProductToCartContract
 {
-    public UuidInterface $cartUuid { get; }
+    public OrderIdentifier $cartUuid { get; }
 
     public string $sku { get; }
 

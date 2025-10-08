@@ -2,9 +2,10 @@
 
 namespace Combee\ProductCatalog\Model\Exception;
 
+use Combee\Core\Exception\LogicException;
 use Money\Money;
 
-class NegativeOrZeroPriceException extends \LogicException
+class NegativeOrZeroPriceException extends LogicException
 {
     public static function throwIfNotPositive(Money $value): void
     {

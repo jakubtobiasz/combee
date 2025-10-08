@@ -3,18 +3,17 @@
 namespace Tests\Unit\Ordering\Model;
 
 use Combee\Ordering\Model\Exception\NegativeOrZeroQuantityException;
-use Combee\Ordering\Model\OrderItem;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use Ramsey\Uuid\Uuid;
+use Tests\Helper\MotherObject\OrderItemMother;
 
 final class OrderItemTest extends TestCase
 {
     #[Test]
     public function it_can_be_created(): void
     {
-        $item = new OrderItem(Uuid::uuid4(), 'OMG', 1);
+        $item = OrderItemMother::some();
 
         $this->expectNotToPerformAssertions();
     }
@@ -26,7 +25,7 @@ final class OrderItemTest extends TestCase
         $this->expectException(NegativeOrZeroQuantityException::class);
         $this->expectExceptionMessage('Quantity must be greater than zero.');
 
-        $item = new OrderItem(Uuid::uuid4(), 'OMG', $quantity);
+        $item = OrderItemMother::some(quantity: $quantity);
     }
 
     /**
