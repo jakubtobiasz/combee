@@ -2,9 +2,9 @@
 
 namespace Tests\Helper\MotherObject;
 
-use Combee\Core\Model\Identifier\OrderItemIdentifier;
-use Combee\Ordering\Contract\Model\OrderItemContract;
-use Combee\Ordering\Model\OrderItem;
+use Combee\Core\Ordering\Contract\Model\OrderItemContract;
+use Combee\Core\Ordering\Model\OrderItem;
+use Combee\Core\Shared\Model\Identifier\OrderItemIdentifier;
 
 class OrderItemMother
 {

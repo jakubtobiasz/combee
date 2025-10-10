@@ -2,9 +2,9 @@
 
 namespace Tests\Helper\MotherObject;
 
-use Combee\Core\Model\Identifier\ProductIdentifier;
-use Combee\ProductCatalog\Contract\Model\ProductContract;
-use Combee\ProductCatalog\Model\Product;
+use Combee\Core\ProductCatalog\Contract\Model\ProductContract;
+use Combee\Core\ProductCatalog\Model\Product;
+use Combee\Core\Shared\Model\Identifier\ProductIdentifier;
 use Money\Money;
 
 class ProductMother

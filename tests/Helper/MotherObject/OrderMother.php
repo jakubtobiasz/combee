@@ -2,10 +2,10 @@
 
 namespace Tests\Helper\MotherObject;
 
-use Combee\Core\Model\Identifier\OrderIdentifier;
-use Combee\Ordering\Contract\Model\OrderContract;
-use Combee\Ordering\Contract\Model\OrderItemContract;
-use Combee\Ordering\Model\Order;
+use Combee\Core\Ordering\Contract\Model\OrderContract;
+use Combee\Core\Ordering\Contract\Model\OrderItemContract;
+use Combee\Core\Ordering\Model\Order;
+use Combee\Core\Shared\Model\Identifier\OrderIdentifier;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 

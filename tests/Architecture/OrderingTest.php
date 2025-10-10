@@ -11,11 +11,11 @@ final class OrderingTest
     public function test_ordering_depends_only_on_its_own_classes(): Rule
     {
         return PHPat::rule()
-            ->classes(Selector::inNamespace('Combee\Ordering'))
+            ->classes(Selector::inNamespace('Combee\Core\Ordering'))
             ->canOnlyDependOn()
             ->classes(
-                Selector::inNamespace('Combee\Core'),
-                Selector::inNamespace('Combee\Ordering'),
+                Selector::inNamespace('Combee\Core\Ordering'),
+                Selector::inNamespace('Combee\Core\Shared'),
                 Selector::inNamespace('Doctrine\Common\Collections'),
                 Selector::inNamespace('Money'),
             )
