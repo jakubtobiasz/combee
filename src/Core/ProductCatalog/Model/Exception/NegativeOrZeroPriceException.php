@@ -2,14 +2,14 @@
 
 namespace Combee\Core\ProductCatalog\Model\Exception;
 
+use Combee\Core\Shared\DataObject\Price;
 use Combee\Core\Shared\Exception\LogicException;
-use Money\Money;
 
 class NegativeOrZeroPriceException extends LogicException
 {
-    public static function throwIfNotPositive(Money $value): void
+    public static function throwIfNotPositive(Price $value): void
     {
-        if (!$value->isPositive()) {
+        if (!$value->isPositive) {
             throw new self('Price must be greater than zero.');
         }
     }

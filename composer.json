@@ -22,6 +22,7 @@
     "php": "^8.4",
     "doctrine/collections": "^2.3",
     "moneyphp/money": "^4.7",
+    "symfony/intl": "^5.4 || ^6.4 || ^7.3",
     "symfony/uid": "^5.4 || ^6.4 || ^7.3"
   },
   "scripts": {

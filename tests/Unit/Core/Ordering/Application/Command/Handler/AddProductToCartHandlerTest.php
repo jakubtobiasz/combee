@@ -12,8 +12,9 @@ use Combee\Core\Ordering\Contract\Model\OrderContract;
 use Combee\Core\Ordering\Contract\Model\OrderItemContract;
 use Combee\Core\Ordering\Contract\Provider\ProductDataProviderContract;
 use Combee\Core\Ordering\Contract\Storage\CartStorageContract;
+use Combee\Core\Shared\DataObject\Currency;
+use Combee\Core\Shared\DataObject\Price;
 use Combee\Core\Shared\Model\Identifier\OrderIdentifier;
-use Money\Money;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -45,7 +46,7 @@ final class AddProductToCartHandlerTest extends TestCase
         $productData = new class () implements ProductData {
             public string $sku { get => 'OMG'; }
 
-            public Money $price { get => Money::PLN(100); }
+            public Price $price { get => Price::new(100, Currency::new('PLN')); }
         };
 
         $this->productDataProvider->method('getProductData')->willReturn($productData);

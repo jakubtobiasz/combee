@@ -2,11 +2,11 @@
 
 namespace Combee\Core\Ordering\Contract\DataObject;
 
-use Money\Money;
+use Combee\Core\Shared\DataObject\Price;
 
 interface ProductData
 {
     public string $sku { get; }
 
-    public Money $price { get; }
+    public Price $price { get; }
 }

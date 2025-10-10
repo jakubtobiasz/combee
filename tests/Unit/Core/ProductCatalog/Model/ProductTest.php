@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Tests\Unit\Core\ProductCatalog\Model;
 
 use Combee\Core\ProductCatalog\Model\Exception\NegativeOrZeroPriceException;
-use Money\Money;
+use Combee\Core\Shared\DataObject\Currency;
+use Combee\Core\Shared\DataObject\Price;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -23,7 +24,7 @@ final class ProductTest extends TestCase
 
     #[Test]
     #[DataProvider('provideInvalidPrices')]
-    public function it_prevents_from_creating_product_with_invalid_price(Money $price): void
+    public function it_prevents_from_creating_product_with_invalid_price(Price $price): void
     {
         $this->expectException(NegativeOrZeroPriceException::class);
         $this->expectExceptionMessage('Price must be greater than zero.');
@@ -33,7 +34,7 @@ final class ProductTest extends TestCase
 
     #[Test]
     #[DataProvider('provideInvalidPrices')]
-    public function it_prevents_changing_the_price_to_invalid_one(Money $price): void
+    public function it_prevents_changing_the_price_to_invalid_one(Price $price): void
     {
         $this->expectException(NegativeOrZeroPriceException::class);
         $this->expectExceptionMessage('Price must be greater than zero.');
@@ -43,11 +44,11 @@ final class ProductTest extends TestCase
     }
 
     /**
-     * @return iterable<array<Money>>
+     * @return iterable<array<Price>>
      */
     public static function provideInvalidPrices(): iterable
     {
-        yield [Money::PLN(0)];
-        yield [Money::PLN(-1)];
+        yield [Price::new(0, Currency::new('PLN'))];
+        yield [Price::new(-1, Currency::new('PLN'))];
     }
 }

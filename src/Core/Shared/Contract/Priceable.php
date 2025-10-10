@@ -2,9 +2,9 @@
 
 namespace Combee\Core\Shared\Contract;
 
-use Money\Money;
+use Combee\Core\Shared\DataObject\Price;
 
 interface Priceable
 {
-    public Money $price { get; set; }
+    public Price $price { get; set; }
 }

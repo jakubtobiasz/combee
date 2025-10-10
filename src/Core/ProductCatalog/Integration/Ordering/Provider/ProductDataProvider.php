@@ -4,7 +4,8 @@ namespace Combee\Core\ProductCatalog\Integration\Ordering\Provider;
 
 use Combee\Core\Ordering\Contract\DataObject\ProductData;
 use Combee\Core\Ordering\Contract\Provider\ProductDataProviderContract;
-use Money\Money;
+use Combee\Core\Shared\DataObject\Currency;
+use Combee\Core\Shared\DataObject\Price;
 
 /**
  * @final
@@ -20,8 +21,8 @@ class ProductDataProvider implements ProductDataProviderContract
         return new class () implements ProductData {
             public string $sku = 'sku';
 
-            public Money $price {
-                get => Money::PLN(100);
+            public Price $price {
+                get => Price::new(100, Currency::new('PLN'));
             }
         };
     }

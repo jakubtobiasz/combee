@@ -4,17 +4,18 @@ namespace Tests\Helper\MotherObject;
 
 use Combee\Core\ProductCatalog\Contract\Model\ProductContract;
 use Combee\Core\ProductCatalog\Model\Product;
+use Combee\Core\Shared\DataObject\Currency;
+use Combee\Core\Shared\DataObject\Price;
 use Combee\Core\Shared\Model\Identifier\ProductIdentifier;
-use Money\Money;
 
 class ProductMother
 {
-    public static function some(?ProductIdentifier $uuid = null, string $sku = 'OMG', ?Money $price = null): ProductContract
+    public static function some(?ProductIdentifier $uuid = null, string $sku = 'OMG', ?Price $price = null): ProductContract
     {
         return new Product(
             $uuid ?? ProductIdentifier::new(),
             $sku,
-            $price ?? Money::PLN(150),
+            $price ?? Price::new(150, Currency::new('PLN')),
         );
     }
 }
