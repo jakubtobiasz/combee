@@ -1,0 +1,11 @@
+{
+  "require-dev": {
+    "infection/infection": "*"
+  },
+  "config": {
+    "bin-dir": "../bin",
+    "allow-plugins": {
+      "infection/extension-installer": true
+    }
+  }
+}

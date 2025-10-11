@@ -11,6 +11,16 @@ use Doctrine\Common\Collections\Collection;
 
 class Order implements OrderContract
 {
+    public protected(set) bool $isSealed {
+        get {
+            if (!isset($this->isSealed)) {
+                $this->isSealed = $this->state !== 'cart';
+            }
+
+            return $this->isSealed;
+        }
+    }
+
     /**
      * @param Collection<array-key, OrderItemContract> $items
      */
@@ -28,13 +38,8 @@ class Order implements OrderContract
 
     public function addItem(OrderItemContract $item, AddItemStrategyContract $addItemStrategy): void
     {
-        OrderSealedException::throwIfTrue($this->isSealed());
+        OrderSealedException::throwIfTrue($this->isSealed);
 
         $addItemStrategy->addItem($this->items, $item);
-    }
-
-    public function isSealed(): bool
-    {
-        return $this->state !== 'cart';
     }
 }

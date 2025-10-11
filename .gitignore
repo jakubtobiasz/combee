@@ -1,4 +1,7 @@
+/tools/bin
 /vendor
 /.phpunit.result.cache
 /.php-cs-fixer.cache
+/.infection.cache
 /composer.lock
+/build
