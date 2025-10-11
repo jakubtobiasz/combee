@@ -16,7 +16,8 @@ final class AddProductToCartTest extends TestCase
     {
         $command = new AddProductToCart(OrderIdentifier::new(), 'OMG', 2);
 
-        $this->expectNotToPerformAssertions();
+        $this->assertSame('OMG', $command->sku);
+        $this->assertSame(2, $command->quantity);
     }
 
     #[Test]
