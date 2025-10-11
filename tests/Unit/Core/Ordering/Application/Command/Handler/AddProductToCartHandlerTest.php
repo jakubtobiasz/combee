@@ -55,6 +55,8 @@ final class AddProductToCartHandlerTest extends TestCase
 
         $this->orderItemFactory->method('createFromProductData')->with($productData, 2)->willReturn($cartItem);
 
+        $this->cartStorage->expects($this->once())->method('save')->with($cart);
+
         $cart->expects($this->once())->method('addItem')->with($cartItem, $this->isInstanceOf(AddItemStrategyContract::class));
 
         new AddProductToCartHandler($this->productDataProvider, $this->cartStorage, $this->orderItemFactory)

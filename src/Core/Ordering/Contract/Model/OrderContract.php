@@ -15,5 +15,7 @@ interface OrderContract
 
     public string $state { get; }
 
+    public bool $isSealed { get; }
+
     public function addItem(OrderItemContract $item, AddItemStrategyContract $addItemStrategy): void;
 }

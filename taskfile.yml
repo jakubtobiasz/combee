@@ -23,9 +23,15 @@ tasks:
       - tools/bin/phpunit
     silent: true
 
+  infection:
+    cmds:
+      - tools/bin/infection
+    silent: true
+
   ci:
     cmds:
       - task: cs
       - task: phpstan
       - task: phpunit
+      - task: infection
     silent: true

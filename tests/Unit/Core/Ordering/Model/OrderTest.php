@@ -58,4 +58,11 @@ final class OrderTest extends TestCase
             $this->createMock(AddItemStrategyContract::class),
         );
     }
+
+    #[Test]
+    public function it_returns_if_order_is_sealed(): void
+    {
+        $this->assertTrue(OrderMother::some(state: 'placed')->isSealed);
+        $this->assertFalse(OrderMother::some(state: 'cart')->isSealed);
+    }
 }

@@ -4,6 +4,7 @@ namespace Tests\Unit\Core\Shared\DataObject;
 
 use Combee\Core\Shared\DataObject\Currency;
 use Combee\Core\Shared\DataObject\Price;
+use Combee\Core\Shared\Exception\InvalidArgumentException;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -15,6 +16,16 @@ final class PriceTest extends TestCase
         $price = new Price(1000, new Currency('EUR'));
 
         $this->expectNotToPerformAssertions();
+    }
+
+    #[Test]
+    public function it_throws_an_exception_if_cannot_be_created_due_to_invalid_amount(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid integer part ABC. Invalid digit A found');
+
+        /** @phpstan-ignore argument.type */
+        $price = new Price('ABC', Currency::new('PLN'));
     }
 
     #[Test]
