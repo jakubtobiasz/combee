@@ -5,7 +5,7 @@ namespace Tests\Unit\Core\Ordering\Model;
 use Combee\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
 use Combee\Core\Ordering\Contract\Model\Exception\OrderSealedException;
 use Combee\Core\Ordering\Contract\Model\OrderItemContract;
-use Doctrine\Common\Collections\ArrayCollection;
+use Combee\Core\Shared\Collection\ArrayCollection;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Tests\Helper\MotherObject\OrderItemMother;

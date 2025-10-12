@@ -16,7 +16,6 @@ final class OrderingTest
             ->classes(
                 Selector::inNamespace('Combee\Core\Ordering'),
                 Selector::inNamespace('Combee\Core\Shared'),
-                Selector::inNamespace('Doctrine\Common\Collections'),
             )
             ->because('Ordering should not depend on other modules')
         ;

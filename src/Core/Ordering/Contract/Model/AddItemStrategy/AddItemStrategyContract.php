@@ -3,7 +3,7 @@
 namespace Combee\Core\Ordering\Contract\Model\AddItemStrategy;
 
 use Combee\Core\Ordering\Contract\Model\OrderItemContract;
-use Doctrine\Common\Collections\Collection;
+use Combee\Core\Shared\Contract\Collection;
 
 interface AddItemStrategyContract
 {

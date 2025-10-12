@@ -6,8 +6,8 @@ use Combee\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
 use Combee\Core\Ordering\Contract\Model\Exception\OrderSealedException;
 use Combee\Core\Ordering\Contract\Model\OrderContract;
 use Combee\Core\Ordering\Contract\Model\OrderItemContract;
+use Combee\Core\Shared\Contract\Collection;
 use Combee\Core\Shared\Model\Identifier\OrderIdentifier;
-use Doctrine\Common\Collections\Collection;
 
 class Order implements OrderContract
 {
