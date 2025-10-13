@@ -17,7 +17,6 @@ final class ProductCatalogTest
             ->classes(
                 Selector::inNamespace('Combee\Core\ProductCatalog'),
                 Selector::inNamespace('Combee\Core\Shared'),
-                Selector::inNamespace('Doctrine\Common\Collections'),
             )
             ->because('Product catalog should not depend on other modules')
         ;

@@ -3,8 +3,8 @@
 namespace Combee\Core\Ordering\Contract\Model;
 
 use Combee\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
+use Combee\Core\Shared\Contract\Collection;
 use Combee\Core\Shared\Model\Identifier\OrderIdentifier;
-use Doctrine\Common\Collections\Collection;
 
 interface OrderContract
 {

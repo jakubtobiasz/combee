@@ -4,7 +4,7 @@ namespace Tests\Unit\Core\Ordering\Model\AddItemStrategy;
 
 use Combee\Core\Ordering\Contract\Model\OrderItemContract;
 use Combee\Core\Ordering\Model\AddItemStrategy\MergeSameSkuItemsStrategy;
-use Doctrine\Common\Collections\ArrayCollection;
+use Combee\Core\Shared\Collection\ArrayCollection;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Tests\Helper\MotherObject\OrderItemMother;
