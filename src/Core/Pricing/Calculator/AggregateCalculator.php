@@ -19,7 +19,7 @@ final readonly class AggregateCalculator implements CalculatorContract
     public function __construct(
         iterable $calculators,
     ) {
-        $this->calculators = $calculators instanceof \Traversable ? iterator_to_array($calculators) : $calculators;
+        $this->calculators = iterator_to_array($calculators);
 
         foreach ($this->calculators as $calculator) {
             if (!$calculator instanceof CalculatorContract) {
