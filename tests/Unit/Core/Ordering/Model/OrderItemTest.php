@@ -46,6 +46,14 @@ final class OrderItemTest extends TestCase
         $item = OrderItemMother::some(quantity: 2, unitPrice: new Price(1000, Currency::new('PLN')));
 
         $this->assertTrue(new Price('2000', Currency::new('PLN'))->equals($item->price));
+
+        $item->addPriceAdjustment($adjustment = PriceAdjustmentMother::some(new Price(1500, Currency::new('PLN'))));
+
+        $this->assertTrue(new Price('3500', Currency::new('PLN'))->equals($item->price));
+
+        $item->removePriceAdjustment($adjustment);
+
+        $this->assertTrue(new Price('2000', Currency::new('PLN'))->equals($item->price));
     }
 
     #[Test]

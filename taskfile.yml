@@ -25,7 +25,7 @@ tasks:
 
   infection:
     cmds:
-      - tools/bin/infection --min-msi=90 --min-covered-msi=90 --threads=max
+      - tools/bin/infection
     silent: true
 
   ci:

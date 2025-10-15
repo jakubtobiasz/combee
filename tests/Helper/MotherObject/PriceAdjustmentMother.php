@@ -16,7 +16,7 @@ class PriceAdjustmentMother
     ): PriceAdjustmentContract {
         $amount = $amount ?? Price::new(150, Currency::new('PLN'));
 
-        return new readonly class($amount, $description, $type, $isNeutral) implements PriceAdjustmentContract {
+        return new readonly class ($amount, $description, $type, $isNeutral) implements PriceAdjustmentContract {
             public function __construct(
                 public Price $amount,
                 public string $description,

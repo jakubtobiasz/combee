@@ -17,6 +17,8 @@ interface OrderItemContract
 
     public int $quantity { get; set; }
 
+    public Price $price { get; }
+
     /** @var Collection<array-key, PriceAdjustmentContract> */
     public Collection $priceAdjustments { get; }
 

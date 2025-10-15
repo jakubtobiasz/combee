@@ -19,6 +19,9 @@ class OrderItem implements OrderItemContract
     /** @var Collection<array-key, PriceAdjustmentContract> */
     protected readonly Collection $_priceAdjustments;
 
+    /**
+     * @param Collection<array-key, PriceAdjustmentContract> $priceAdjustments
+     */
     public function __construct(
         public readonly OrderItemIdentifier $uuid,
         public readonly string $productSku,
@@ -67,7 +70,9 @@ class OrderItem implements OrderItemContract
         }
 
         $this->_priceAdjustments->add($priceAdjustment);
+
         $this->forceAdjustmentsReload = true;
+        $this->forcePriceRecalculation = true;
     }
 
     public function removePriceAdjustment(PriceAdjustmentContract $priceAdjustment): void
@@ -77,13 +82,22 @@ class OrderItem implements OrderItemContract
         }
 
         $this->_priceAdjustments->removeElement($priceAdjustment);
+
         $this->forceAdjustmentsReload = true;
+        $this->forcePriceRecalculation = true;
     }
 
     protected function calculatePrice(): Price
     {
+        $newPrice = $this->unitPrice->multiply($this->quantity);
+
+        $adjustmentAmounts = $this->_priceAdjustments->map(
+            fn (PriceAdjustmentContract $priceAdjustment): Price => $priceAdjustment->amount,
+        );
+        $newPrice = $newPrice->add(...$adjustmentAmounts->toArray());
+
         $this->forcePriceRecalculation = false;
 
-        return $this->unitPrice->multiply($this->quantity);
+        return $newPrice;
     }
 }

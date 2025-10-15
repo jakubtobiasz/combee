@@ -5,11 +5,15 @@
       "src"
     ]
   },
+  "threads": "max",
+  "minCoveredMsi": 100,
+  "minMsi": 100,
   "logs": {
     "text": "build/infection.log"
   },
   "mutators": {
-    "@default": true
+    "@default": true,
+    "ProtectedVisibility": false
   },
   "phpUnit": {
     "configDir": ".",

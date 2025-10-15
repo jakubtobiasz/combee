@@ -61,9 +61,11 @@ final class Price
         return new self($backedValue->getAmount(), new Currency($backedValue->getCurrency()->getCode()));
     }
 
-    public function add(Price $other): Price
+    public function add(Price ...$addends): Price
     {
-        $newPrice = $this->backedValue->add($other->backedValue);
+        $addends = array_map(fn (Price $addend) => $addend->backedValue, $addends);
+
+        $newPrice = $this->backedValue->add(...$addends);
 
         return Price::fromBackedValue($newPrice);
     }
