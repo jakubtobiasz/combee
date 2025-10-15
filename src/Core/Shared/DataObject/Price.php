@@ -95,4 +95,9 @@ final class Price
 
         return Price::fromBackedValue($newPrice);
     }
+
+    public function equals(Price $other): bool
+    {
+        return $this->backedValue->equals($other->backedValue);
+    }
 }

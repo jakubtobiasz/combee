@@ -4,23 +4,86 @@ namespace Combee\Core\Ordering\Model;
 
 use Combee\Core\Ordering\Contract\Model\OrderItemContract;
 use Combee\Core\Ordering\Model\Exception\NegativeOrZeroQuantityException;
+use Combee\Core\Shared\Collection\ArrayCollection;
+use Combee\Core\Shared\Contract\Collection;
+use Combee\Core\Shared\Contract\PriceAdjustmentContract;
+use Combee\Core\Shared\DataObject\Price;
 use Combee\Core\Shared\Model\Identifier\OrderItemIdentifier;
 
 class OrderItem implements OrderItemContract
 {
+    protected bool $forcePriceRecalculation = false;
+
+    protected bool $forceAdjustmentsReload = false;
+
+    /** @var Collection<array-key, PriceAdjustmentContract> */
+    protected readonly Collection $_priceAdjustments;
+
     public function __construct(
         public readonly OrderItemIdentifier $uuid,
         public readonly string $productSku,
+        public readonly Price $unitPrice,
         public int $quantity {
-            get {
-                return $this->quantity;
-            }
+            get => $this->quantity;
             set {
                 NegativeOrZeroQuantityException::throwIfNegativeOrZero($value);
 
                 $this->quantity = $value;
+                $this->forcePriceRecalculation = true;
             }
         },
+        Collection $priceAdjustments = new ArrayCollection(),
     ) {
+        $this->_priceAdjustments = $priceAdjustments;
+    }
+
+    public Price $price {
+        get {
+            if (isset($this->price) && !$this->forcePriceRecalculation) {
+                return $this->price;
+            }
+
+            return $this->price = $this->calculatePrice();
+        }
+    }
+
+    /** @inheritdoc */
+    public Collection $priceAdjustments {
+        get {
+            if (isset($this->priceAdjustments) && !$this->forceAdjustmentsReload) {
+                return $this->priceAdjustments;
+            }
+
+            $this->forceAdjustmentsReload = false;
+
+            return $this->priceAdjustments = clone $this->_priceAdjustments;
+        }
+    }
+
+    public function addPriceAdjustment(PriceAdjustmentContract $priceAdjustment): void
+    {
+        if ($this->_priceAdjustments->contains($priceAdjustment)) {
+            return;
+        }
+
+        $this->_priceAdjustments->add($priceAdjustment);
+        $this->forceAdjustmentsReload = true;
+    }
+
+    public function removePriceAdjustment(PriceAdjustmentContract $priceAdjustment): void
+    {
+        if (!$this->_priceAdjustments->contains($priceAdjustment)) {
+            return;
+        }
+
+        $this->_priceAdjustments->removeElement($priceAdjustment);
+        $this->forceAdjustmentsReload = true;
+    }
+
+    protected function calculatePrice(): Price
+    {
+        $this->forcePriceRecalculation = false;
+
+        return $this->unitPrice->multiply($this->quantity);
     }
 }
