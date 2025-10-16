@@ -3,7 +3,8 @@
     "phpat/phpat": "*",
     "phpstan/phpstan": "*",
     "phpstan/phpstan-doctrine": "*",
-    "phpstan/phpstan-phpunit": "*"
+    "phpstan/phpstan-phpunit": "*",
+    "dave-liddament/phpstan-php-language-extensions": "*"
   },
   "config": {
     "bin-dir": "../bin"

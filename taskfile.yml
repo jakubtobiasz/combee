@@ -15,7 +15,7 @@ tasks:
 
   phpstan:
     cmds:
-      - tools/bin/phpstan analyse
+      - tools/bin/phpstan analyse --memory-limit=256M
     silent: true
 
   phpunit:

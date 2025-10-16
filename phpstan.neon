@@ -1,4 +1,5 @@
 includes:
+    - tools/phpstan/vendor/dave-liddament/phpstan-php-language-extensions/extension.neon
     - tools/phpstan/vendor/phpat/phpat/extension.neon
     - tools/phpstan/vendor/phpstan/phpstan-doctrine/extension.neon
     - tools/phpstan/vendor/phpstan/phpstan-phpunit/extension.neon
@@ -12,6 +13,9 @@ parameters:
         - tests
     bootstrapFiles:
         - tools/phpunit/vendor/autoload.php
+    phpLanguageExtensions:
+        mode: namespace
+        testNamespace: 'Tests'
 
 services:
     -
