@@ -4,7 +4,7 @@ namespace Combee\Core\ProductCatalog\Integration\Ordering\Provider;
 
 use Combee\Core\Ordering\Contract\DataObject\ProductData;
 use Combee\Core\Ordering\Contract\Provider\ProductDataProviderContract;
-use Combee\Core\Shared\DataObject\Currency;
+use Combee\Core\ProductCatalog\Contract\Storage\ProductsStorageContract;
 use Combee\Core\Shared\DataObject\Price;
 
 /**
@@ -12,17 +12,24 @@ use Combee\Core\Shared\DataObject\Price;
  */
 class ProductDataProvider implements ProductDataProviderContract
 {
+    public function __construct(
+        private readonly ProductsStorageContract $productsStorage,
+    ) {
+    }
+
     public function getProductData(string $sku): ?ProductData
     {
-        if ($sku === 'WOW') {
+        $product = $this->productsStorage->findBySku($sku);
+
+        if ($product === null) {
             return null;
         }
 
-        return new class () implements ProductData {
-            public string $sku = 'sku';
-
-            public Price $price {
-                get => Price::new(100, Currency::new('PLN'));
+        return new readonly class ($product->sku, $product->price) implements ProductData {
+            public function __construct(
+                public string $sku,
+                public Price $price,
+            ) {
             }
         };
     }

@@ -9,7 +9,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Tests\\": "tests/"
+      "Tests\\": "tests/",
+      "Tools\\Behat\\": "tools/behat/src"
     }
   },
   "authors": [
@@ -34,14 +35,16 @@
       "@update-tools"
     ],
     "update-tools": [
+      "@update-tools:behat",
+      "@update-tools:infection",
       "@update-tools:php-cs-fixer",
       "@update-tools:phpstan",
-      "@update-tools:phpunit",
-      "@update-tools:infection"
+      "@update-tools:phpunit"
     ],
+    "update-tools:behat": "composer update -n -d tools/behat",
+    "update-tools:infection": "composer update -n -d tools/infection",
     "update-tools:php-cs-fixer": "composer update -n -d tools/php-cs-fixer",
     "update-tools:phpstan": "composer update -n -d tools/phpstan",
-    "update-tools:phpunit": "composer update -n -d tools/phpunit",
-    "update-tools:infection": "composer update -n -d tools/infection"
+    "update-tools:phpunit": "composer update -n -d tools/phpunit"
   }
 }

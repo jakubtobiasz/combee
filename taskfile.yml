@@ -28,10 +28,22 @@ tasks:
       - tools/bin/infection
     silent: true
 
+  behat:
+    cmds:
+      - tools/bin/behat -f progress
+    silent: true
+
+  cq:
+    cmds:
+      - task: cs
+      - task: phpstan
+    silent: true
+
   ci:
     cmds:
       - task: cs
       - task: phpstan
       - task: phpunit
       - task: infection
+      - task: behat
     silent: true

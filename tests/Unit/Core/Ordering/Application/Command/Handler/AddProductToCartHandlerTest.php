@@ -41,7 +41,7 @@ final class AddProductToCartHandlerTest extends TestCase
 
         $cart = $this->createMock(OrderContract::class);
 
-        $this->cartStorage->method('get')->with($cartUuid)->willReturn($cart);
+        $this->cartStorage->method('findByIdentifier')->with($cartUuid)->willReturn($cart);
 
         $productData = new class () implements ProductData {
             public string $sku { get => 'OMG'; }
@@ -55,7 +55,7 @@ final class AddProductToCartHandlerTest extends TestCase
 
         $this->orderItemFactory->method('createFromProductData')->with($productData, 2)->willReturn($cartItem);
 
-        $this->cartStorage->expects($this->once())->method('save')->with($cart);
+        $this->cartStorage->expects($this->once())->method('store')->with($cart);
 
         $cart->expects($this->once())->method('addItem')->with($cartItem, $this->isInstanceOf(AddItemStrategyContract::class));
 
@@ -69,7 +69,7 @@ final class AddProductToCartHandlerTest extends TestCase
     {
         $command = new AddProductToCart($cartUuid = OrderIdentifier::new(), 'OMG', 2);
 
-        $this->cartStorage->method('get')->with($cartUuid)->willReturn(null);
+        $this->cartStorage->method('findByIdentifier')->with($cartUuid)->willReturn(null);
 
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(sprintf('Cart with UUID "%s" not found.', $cartUuid->toString()));
@@ -86,7 +86,7 @@ final class AddProductToCartHandlerTest extends TestCase
 
         $cart = $this->createMock(OrderContract::class);
 
-        $this->cartStorage->method('get')->with($cartUuid)->willReturn($cart);
+        $this->cartStorage->method('findByIdentifier')->with($cartUuid)->willReturn($cart);
 
         $this->productDataProvider->method('getProductData')->willReturn(null);
 

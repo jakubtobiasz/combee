@@ -1,0 +1,11 @@
+{
+  "require-dev": {
+    "behat/behat": "*",
+    "friends-of-behat/service-container-extension": "*",
+    "illuminate/container": "^11.0",
+    "webmozart/assert": "*"
+  },
+  "config": {
+    "bin-dir": "../bin"
+  }
+}

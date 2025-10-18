@@ -7,7 +7,7 @@ use Combee\Core\Shared\Model\Identifier\OrderIdentifier;
 
 interface CartStorageContract
 {
-    public function get(OrderIdentifier $cartUuid): ?OrderContract;
+    public function findByIdentifier(OrderIdentifier $identifier): ?OrderContract;
 
-    public function save(OrderContract $cart): void;
+    public function store(OrderContract $cart): void;
 }

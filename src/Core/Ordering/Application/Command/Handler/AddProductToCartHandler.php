@@ -20,7 +20,7 @@ readonly class AddProductToCartHandler
 
     public function __invoke(AddProductToCartContract $command): void
     {
-        $cart = $this->cartStorage->get($command->cartUuid);
+        $cart = $this->cartStorage->findByIdentifier($command->cartUuid);
         CartNotFoundException::throwIfNull($cart, $command->cartUuid);
 
         $product = $this->productDataProvider->getProductData($command->sku);
@@ -30,6 +30,6 @@ readonly class AddProductToCartHandler
 
         $cart->addItem($orderItem, new $command->strategy());
 
-        $this->cartStorage->save($cart);
+        $this->cartStorage->store($cart);
     }
 }
