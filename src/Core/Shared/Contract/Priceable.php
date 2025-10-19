@@ -6,5 +6,5 @@ use Recode\Ecommerce\Core\Shared\DataObject\Price;
 
 interface Priceable
 {
-    public Price $price { get; set; }
+    public Price $price { get; }
 }

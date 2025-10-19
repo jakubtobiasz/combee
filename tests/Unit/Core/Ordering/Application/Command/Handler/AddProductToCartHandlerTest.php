@@ -2,26 +2,30 @@
 
 namespace Tests\Unit\Core\Ordering\Application\Command\Handler;
 
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 use Recode\Ecommerce\Core\Ordering\Application\Command\AddProductToCart;
 use Recode\Ecommerce\Core\Ordering\Application\Command\Handler\AddProductToCartHandler;
 use Recode\Ecommerce\Core\Ordering\Application\Command\Handler\Exception\ProductNotFoundException;
-use Recode\Ecommerce\Core\Ordering\Contract\DataObject\ProductData;
+use Recode\Ecommerce\Core\Ordering\Contract\Command\AddProductToCartContract;
 use Recode\Ecommerce\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
 use Recode\Ecommerce\Core\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
 use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderContract;
 use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderItemContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Provider\PriceProviderContract;
 use Recode\Ecommerce\Core\Ordering\Contract\Provider\ProductDataProviderContract;
 use Recode\Ecommerce\Core\Ordering\Contract\Storage\CartStorageContract;
 use Recode\Ecommerce\Core\Shared\DataObject\Currency;
 use Recode\Ecommerce\Core\Shared\DataObject\Price;
 use Recode\Ecommerce\Core\Shared\Model\Identifier\OrderIdentifier;
-use PHPUnit\Framework\Attributes\Test;
-use PHPUnit\Framework\MockObject\MockObject;
-use PHPUnit\Framework\TestCase;
+use Tests\Helper\MotherObject\ProductDataMother;
 
 final class AddProductToCartHandlerTest extends TestCase
 {
     private MockObject&ProductDataProviderContract $productDataProvider;
+
+    private MockObject&PriceProviderContract $priceProvider;
 
     private MockObject&CartStorageContract $cartStorage;
 
@@ -30,6 +34,7 @@ final class AddProductToCartHandlerTest extends TestCase
     protected function setUp(): void
     {
         $this->productDataProvider = $this->createMock(ProductDataProviderContract::class);
+        $this->priceProvider = $this->createMock(PriceProviderContract::class);
         $this->cartStorage = $this->createMock(CartStorageContract::class);
         $this->orderItemFactory = $this->createMock(OrderItemFactoryContract::class);
     }
@@ -43,25 +48,20 @@ final class AddProductToCartHandlerTest extends TestCase
 
         $this->cartStorage->method('findByIdentifier')->with($cartUuid)->willReturn($cart);
 
-        $productData = new class () implements ProductData {
-            public string $sku { get => 'OMG'; }
-
-            public Price $price { get => Price::new(100, Currency::new('PLN')); }
-        };
+        $productData = ProductDataMother::some('OMG', new Price(2, new Currency('EUR')));
 
         $this->productDataProvider->method('getProductData')->willReturn($productData);
+        $this->priceProvider->method('provideFor')->with($productData)->willReturn($providedPrice = new Price(2, new Currency('EUR')));
 
         $cartItem = $this->createMock(OrderItemContract::class);
 
-        $this->orderItemFactory->method('createFromProductData')->with($productData, 2)->willReturn($cartItem);
+        $this->orderItemFactory->method('createFromProductData')->with($productData, $providedPrice, 2)->willReturn($cartItem);
 
         $this->cartStorage->expects($this->once())->method('store')->with($cart);
 
         $cart->expects($this->once())->method('addItem')->with($cartItem, $this->isInstanceOf(AddItemStrategyContract::class));
 
-        new AddProductToCartHandler($this->productDataProvider, $this->cartStorage, $this->orderItemFactory)
-            ->__invoke($command)
-        ;
+        $this->dispatch($command);
     }
 
     #[Test]
@@ -74,9 +74,7 @@ final class AddProductToCartHandlerTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(sprintf('Cart with UUID "%s" not found.', $cartUuid->toString()));
 
-        new AddProductToCartHandler($this->productDataProvider, $this->cartStorage, $this->orderItemFactory)
-            ->__invoke($command)
-        ;
+        $this->dispatch($command);
     }
 
     #[Test]
@@ -93,8 +91,18 @@ final class AddProductToCartHandlerTest extends TestCase
         $this->expectException(ProductNotFoundException::class);
         $this->expectExceptionMessage('Product with SKU "OMG" not found.');
 
-        new AddProductToCartHandler($this->productDataProvider, $this->cartStorage, $this->orderItemFactory)
-            ->__invoke($command)
-        ;
+        $this->dispatch($command);
+    }
+
+    private function dispatch(AddProductToCartContract $command): void
+    {
+        $handler = new AddProductToCartHandler(
+            $this->productDataProvider,
+            $this->priceProvider,
+            $this->cartStorage,
+            $this->orderItemFactory,
+        );
+
+        $handler->__invoke($command);
     }
 }

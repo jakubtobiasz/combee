@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Unit\Core\Pricing\Integration\Calculator;
+namespace Tests\Unit\Core\Pricing\Application\Calculator;
 
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 use Recode\Ecommerce\Core\Pricing\Application\Calculator\DefaultCalculator;
 use Recode\Ecommerce\Core\Shared\Contract\Priceable;
 use Recode\Ecommerce\Core\Shared\DataObject\Currency;
 use Recode\Ecommerce\Core\Shared\DataObject\Price;
-use PHPUnit\Framework\Attributes\Test;
-use PHPUnit\Framework\TestCase;
 
 final class DefaultCalculatorTest extends TestCase
 {
@@ -23,14 +23,12 @@ final class DefaultCalculatorTest extends TestCase
     public function it_returns_priceable_price(): void
     {
         $calculator = new DefaultCalculator();
-        $expectedPrice = new Price(1000, new Currency('EUR'));
 
-        $priceable = $this->createMock(Priceable::class);
-        $priceable->price = $expectedPrice;
+        $priceable = $this->createPriceable(new Price(1000, new Currency('EUR')));
 
-        $result = $calculator->calculate($priceable);
+        $calculatedPrice = $calculator->calculate($priceable);
 
-        $this->assertSame($expectedPrice, $result);
+        $this->assertTrue(new Price(1000, new Currency('EUR'))->equals($calculatedPrice));
     }
 
     #[Test]
@@ -40,5 +38,15 @@ final class DefaultCalculatorTest extends TestCase
         $priceable = $this->createMock(Priceable::class);
 
         $this->assertTrue($calculator->supports($priceable));
+    }
+
+    private function createPriceable(Price $price): Priceable
+    {
+        return new readonly class ($price) implements Priceable {
+            public function __construct(
+                protected(set) Price $price
+            ) {
+            }
+        };
     }
 }

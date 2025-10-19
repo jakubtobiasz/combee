@@ -6,6 +6,7 @@ use Recode\Ecommerce\Core\Ordering\Application\Command\Handler\Exception\CartNot
 use Recode\Ecommerce\Core\Ordering\Application\Command\Handler\Exception\ProductNotFoundException;
 use Recode\Ecommerce\Core\Ordering\Contract\Command\AddProductToCartContract;
 use Recode\Ecommerce\Core\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Provider\PriceProviderContract;
 use Recode\Ecommerce\Core\Ordering\Contract\Provider\ProductDataProviderContract;
 use Recode\Ecommerce\Core\Ordering\Contract\Storage\CartStorageContract;
 
@@ -13,6 +14,7 @@ readonly class AddProductToCartHandler
 {
     public function __construct(
         private ProductDataProviderContract $productDataProvider,
+        private PriceProviderContract $priceProvider,
         private CartStorageContract $cartStorage,
         private OrderItemFactoryContract $orderItemFactory,
     ) {
@@ -26,7 +28,9 @@ readonly class AddProductToCartHandler
         $product = $this->productDataProvider->getProductData($command->sku);
         ProductNotFoundException::throwIfNull($product, $command->sku);
 
-        $orderItem = $this->orderItemFactory->createFromProductData($product, $command->quantity);
+        $unitPrice = $this->priceProvider->provideFor($product);
+        $orderItem = $this->orderItemFactory->createFromProductData($product, $unitPrice, $command->quantity);
+
 
         $cart->addItem($orderItem, new $command->strategy());
 

@@ -10,5 +10,5 @@ interface PriceProviderContract
     /**
      * @param array<string, mixed> $context
      */
-    public function providePriceFor(Priceable $priceable, array $context = []): Price;
+    public function provideFor(Priceable $priceable, array $context = []): Price;
 }

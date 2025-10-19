@@ -15,7 +15,7 @@ final readonly class PriceProvider implements PriceProviderContract
     }
 
     /** @inheritDoc */
-    public function providePriceFor(Priceable $priceable, array $context = []): Price
+    public function provideFor(Priceable $priceable, array $context = []): Price
     {
         return $this->calculator->calculate($priceable, $context);
     }

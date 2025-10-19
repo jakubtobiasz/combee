@@ -2,11 +2,9 @@
 
 namespace Recode\Ecommerce\Core\Ordering\Contract\DataObject;
 
-use Recode\Ecommerce\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\Contract\Priceable;
 
-interface ProductData
+interface ProductData extends Priceable
 {
     public string $sku { get; }
-
-    public Price $price { get; }
 }
