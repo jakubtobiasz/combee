@@ -1,5 +1,6 @@
 {
   "require-dev": {
+    "brianium/paratest": "*",
     "phpunit/phpunit": "*"
   },
   "config": {

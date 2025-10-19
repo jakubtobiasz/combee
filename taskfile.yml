@@ -24,7 +24,7 @@ tasks:
 
   phpunit:
     cmds:
-      - '{{.RUN_CMD}}tools/bin/phpunit'
+      - '{{.RUN_CMD}}tools/bin/paratest'
     silent: true
 
   infection:

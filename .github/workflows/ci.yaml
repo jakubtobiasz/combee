@@ -31,7 +31,7 @@ jobs:
         run: tools/bin/phpstan
 
       - name: Unit Tests
-        run: tools/bin/phpunit
+        run: tools/bin/paratest
 
       - name: Infection
         run: tools/bin/infection
