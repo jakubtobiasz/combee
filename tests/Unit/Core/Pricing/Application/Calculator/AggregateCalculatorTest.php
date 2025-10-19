@@ -2,13 +2,13 @@
 
 namespace Tests\Unit\Core\Pricing\Integration\Calculator;
 
-use Combee\Core\Pricing\Application\Calculator\AggregateCalculator;
-use Combee\Core\Pricing\Contract\CalculatorContract;
-use Combee\Core\Pricing\Contract\Exception\NoSupportedCalculatorException;
-use Combee\Core\Shared\Contract\Priceable;
-use Combee\Core\Shared\DataObject\Currency;
-use Combee\Core\Shared\DataObject\Price;
-use Combee\Core\Shared\Exception\InvalidArgumentException;
+use Recode\Ecommerce\Core\Pricing\Application\Calculator\AggregateCalculator;
+use Recode\Ecommerce\Core\Pricing\Contract\CalculatorContract;
+use Recode\Ecommerce\Core\Pricing\Contract\Exception\NoSupportedCalculatorException;
+use Recode\Ecommerce\Core\Shared\Contract\Priceable;
+use Recode\Ecommerce\Core\Shared\DataObject\Currency;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\Exception\InvalidArgumentException;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -37,7 +37,7 @@ final class AggregateCalculatorTest extends TestCase
     public function it_throws_exception_if_calculator_does_not_implement_contract(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Calculator must implement "Combee\Core\Pricing\Contract\CalculatorContract".');
+        $this->expectExceptionMessage('Calculator must implement "Recode\Ecommerce\Core\Pricing\Contract\CalculatorContract".');
 
         $invalidCalculator = new \stdClass();
 

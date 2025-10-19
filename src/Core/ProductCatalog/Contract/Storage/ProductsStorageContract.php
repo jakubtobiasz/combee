@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\ProductCatalog\Contract\Storage;
+namespace Recode\Ecommerce\Core\ProductCatalog\Contract\Storage;
 
-use Combee\Core\ProductCatalog\Contract\Model\ProductContract;
-use Combee\Core\Shared\Contract\Collection;
-use Combee\Core\Shared\Model\Identifier\ProductIdentifier;
+use Recode\Ecommerce\Core\ProductCatalog\Contract\Model\ProductContract;
+use Recode\Ecommerce\Core\Shared\Contract\Collection;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\ProductIdentifier;
 
 interface ProductsStorageContract
 {

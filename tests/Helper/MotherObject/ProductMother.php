@@ -2,11 +2,11 @@
 
 namespace Tests\Helper\MotherObject;
 
-use Combee\Core\ProductCatalog\Contract\Model\ProductContract;
-use Combee\Core\ProductCatalog\Model\Product;
-use Combee\Core\Shared\DataObject\Currency;
-use Combee\Core\Shared\DataObject\Price;
-use Combee\Core\Shared\Model\Identifier\ProductIdentifier;
+use Recode\Ecommerce\Core\ProductCatalog\Contract\Model\ProductContract;
+use Recode\Ecommerce\Core\ProductCatalog\Model\Product;
+use Recode\Ecommerce\Core\Shared\DataObject\Currency;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\ProductIdentifier;
 
 class ProductMother
 {

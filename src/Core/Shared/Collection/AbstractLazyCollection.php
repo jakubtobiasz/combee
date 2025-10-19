@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Shared\Collection;
+namespace Recode\Ecommerce\Core\Shared\Collection;
 
-use Combee\Core\Shared\Contract\Collection;
+use Recode\Ecommerce\Core\Shared\Contract\Collection;
 use Doctrine\Common\Collections\AbstractLazyCollection as DoctrineAbstractLazyCollection;
 
 /**

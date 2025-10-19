@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Shared\Contract;
+namespace Recode\Ecommerce\Core\Shared\Contract;
 
-use Combee\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
 
 interface Priceable
 {

@@ -2,11 +2,11 @@
 
 namespace Tests\Helper\MotherObject;
 
-use Combee\Core\Ordering\Contract\Model\OrderItemContract;
-use Combee\Core\Ordering\Model\OrderItem;
-use Combee\Core\Shared\DataObject\Currency;
-use Combee\Core\Shared\DataObject\Price;
-use Combee\Core\Shared\Model\Identifier\OrderItemIdentifier;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderItemContract;
+use Recode\Ecommerce\Core\Ordering\Model\OrderItem;
+use Recode\Ecommerce\Core\Shared\DataObject\Currency;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\OrderItemIdentifier;
 
 class OrderItemMother
 {

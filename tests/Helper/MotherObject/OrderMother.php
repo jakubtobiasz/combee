@@ -2,12 +2,12 @@
 
 namespace Tests\Helper\MotherObject;
 
-use Combee\Core\Ordering\Contract\Model\OrderContract;
-use Combee\Core\Ordering\Contract\Model\OrderItemContract;
-use Combee\Core\Ordering\Model\Order;
-use Combee\Core\Shared\Collection\ArrayCollection;
-use Combee\Core\Shared\Contract\Collection;
-use Combee\Core\Shared\Model\Identifier\OrderIdentifier;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderItemContract;
+use Recode\Ecommerce\Core\Ordering\Model\Order;
+use Recode\Ecommerce\Core\Shared\Collection\ArrayCollection;
+use Recode\Ecommerce\Core\Shared\Contract\Collection;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\OrderIdentifier;
 
 class OrderMother
 {

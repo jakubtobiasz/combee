@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Shared\Model\Identifier;
+namespace Recode\Ecommerce\Core\Shared\Model\Identifier;
 
 use Symfony\Component\Uid\UuidV7;
 

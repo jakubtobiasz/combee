@@ -2,9 +2,9 @@
 
 namespace Tests\Unit\Core\Shared\DataObject;
 
-use Combee\Core\Shared\DataObject\Currency;
-use Combee\Core\Shared\DataObject\Price;
-use Combee\Core\Shared\Exception\InvalidArgumentException;
+use Recode\Ecommerce\Core\Shared\DataObject\Currency;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\Exception\InvalidArgumentException;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 

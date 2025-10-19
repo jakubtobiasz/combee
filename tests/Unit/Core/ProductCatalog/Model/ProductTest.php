@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Core\ProductCatalog\Model;
 
-use Combee\Core\ProductCatalog\Model\Exception\NegativeOrZeroPriceException;
-use Combee\Core\Shared\DataObject\Currency;
-use Combee\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\ProductCatalog\Model\Exception\NegativeOrZeroPriceException;
+use Recode\Ecommerce\Core\Shared\DataObject\Currency;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

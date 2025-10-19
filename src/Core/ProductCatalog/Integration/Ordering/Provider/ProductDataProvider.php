@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\ProductCatalog\Integration\Ordering\Provider;
+namespace Recode\Ecommerce\Core\ProductCatalog\Integration\Ordering\Provider;
 
-use Combee\Core\Ordering\Contract\DataObject\ProductData;
-use Combee\Core\Ordering\Contract\Provider\ProductDataProviderContract;
-use Combee\Core\ProductCatalog\Contract\Storage\ProductsStorageContract;
-use Combee\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Ordering\Contract\DataObject\ProductData;
+use Recode\Ecommerce\Core\Ordering\Contract\Provider\ProductDataProviderContract;
+use Recode\Ecommerce\Core\ProductCatalog\Contract\Storage\ProductsStorageContract;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
 
 /**
  * @final

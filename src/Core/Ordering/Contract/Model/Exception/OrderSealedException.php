@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Contract\Model\Exception;
+namespace Recode\Ecommerce\Core\Ordering\Contract\Model\Exception;
 
-use Combee\Core\Shared\Exception\LogicException;
+use Recode\Ecommerce\Core\Shared\Exception\LogicException;
 
 class OrderSealedException extends LogicException
 {

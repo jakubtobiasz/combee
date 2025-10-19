@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Pricing\Integration\Ordering;
+namespace Recode\Ecommerce\Core\Pricing\Integration\Ordering;
 
-use Combee\Core\Ordering\Contract\Provider\PriceProviderContract;
-use Combee\Core\Pricing\Contract\CalculatorContract;
-use Combee\Core\Shared\Contract\Priceable;
-use Combee\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Ordering\Contract\Provider\PriceProviderContract;
+use Recode\Ecommerce\Core\Pricing\Contract\CalculatorContract;
+use Recode\Ecommerce\Core\Shared\Contract\Priceable;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
 
 final readonly class PriceProvider implements PriceProviderContract
 {

@@ -2,9 +2,9 @@
 
 namespace Tests\Unit\Core\Ordering\Application\Command;
 
-use Combee\Core\Ordering\Application\Command\AddProductToCart;
-use Combee\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
-use Combee\Core\Shared\Model\Identifier\OrderIdentifier;
+use Recode\Ecommerce\Core\Ordering\Application\Command\AddProductToCart;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\OrderIdentifier;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use stdClass;

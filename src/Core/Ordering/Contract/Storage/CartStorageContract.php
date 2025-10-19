@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Contract\Storage;
+namespace Recode\Ecommerce\Core\Ordering\Contract\Storage;
 
-use Combee\Core\Ordering\Contract\Model\OrderContract;
-use Combee\Core\Shared\Model\Identifier\OrderIdentifier;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderContract;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\OrderIdentifier;
 
 interface CartStorageContract
 {

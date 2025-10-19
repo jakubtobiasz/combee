@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Contract\Model\AddItemStrategy;
+namespace Recode\Ecommerce\Core\Ordering\Contract\Model\AddItemStrategy;
 
-use Combee\Core\Ordering\Contract\Model\OrderItemContract;
-use Combee\Core\Shared\Contract\Collection;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderItemContract;
+use Recode\Ecommerce\Core\Shared\Contract\Collection;
 
 interface AddItemStrategyContract
 {

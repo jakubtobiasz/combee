@@ -1,10 +1,10 @@
 {
-  "name": "alphpaca/combee",
+  "name": "recode/ecommerce",
   "description": "A next-generation e-commerce engine powered by cutting-edge technology",
   "type": "library",
   "autoload": {
     "psr-4": {
-      "Combee\\": "src/"
+      "Recode\\Ecommerce\\": "src/"
     }
   },
   "autoload-dev": {

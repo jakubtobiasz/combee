@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Pricing\Contract\Exception;
+namespace Recode\Ecommerce\Core\Pricing\Contract\Exception;
 
-use Combee\Core\Shared\Exception\Exception;
+use Recode\Ecommerce\Core\Shared\Exception\Exception;
 
 class NoSupportedCalculatorException extends Exception
 {

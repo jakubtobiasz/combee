@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Shared\Contract;
+namespace Recode\Ecommerce\Core\Shared\Contract;
 
 use Doctrine\Common\Collections\Collection as DoctrineCollection;
 

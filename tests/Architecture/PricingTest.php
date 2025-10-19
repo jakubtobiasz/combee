@@ -11,6 +11,6 @@ class PricingTest extends AbstractComponentTest
 
     protected function getComponentNamespace(): string
     {
-        return 'Combee\Core\Pricing';
+        return 'Recode\Ecommerce\Core\Pricing';
     }
 }

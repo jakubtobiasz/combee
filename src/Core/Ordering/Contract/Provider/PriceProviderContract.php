@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Contract\Provider;
+namespace Recode\Ecommerce\Core\Ordering\Contract\Provider;
 
-use Combee\Core\Shared\Contract\Priceable;
-use Combee\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\Contract\Priceable;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
 
 interface PriceProviderContract
 {

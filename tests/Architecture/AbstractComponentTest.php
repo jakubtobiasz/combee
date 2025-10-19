@@ -29,7 +29,7 @@ abstract class AbstractComponentTest
             ->canOnlyDependOn()
             ->classes(
                 Selector::inNamespace($this->getComponentNamespace()),
-                Selector::inNamespace('Combee\Core\Shared'),
+                Selector::inNamespace('Recode\Ecommerce\Core\Shared'),
             )
             ->because(sprintf('%s should not depend on other modules', $this->getComponentName()))
         ;
@@ -42,8 +42,8 @@ abstract class AbstractComponentTest
             ->canOnlyDependOn()
             ->classes(
                 Selector::inNamespace($this->getComponentNamespace()),
-                Selector::inNamespace('Combee\Core\Shared'),
-                Selector::inNamespace('/^Combee\\\\Core\\\\\w+\\\\Contract.*/', true),
+                Selector::inNamespace('Recode\Ecommerce\Core\Shared'),
+                Selector::inNamespace('/^Recode\\\\Ecommerce\\\\Core\\\\\w+\\\\Contract.*/', true),
             )
             ->because(sprintf('%s integration layer should only depend on specific types', $this->getComponentName()))
         ;
@@ -56,7 +56,7 @@ abstract class AbstractComponentTest
             ->canOnlyDependOn()
             ->classes(
                 Selector::inNamespace($this->getComponentNamespace()),
-                Selector::inNamespace('Combee\Core\Shared'),
+                Selector::inNamespace('Recode\Ecommerce\Core\Shared'),
                 Selector::withFilepath('/vendor/.*', true),
             )
             ->because(sprintf('%s infrastructure layer should depend on any types', $this->getComponentName()))

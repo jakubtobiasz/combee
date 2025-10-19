@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\ProductCatalog\Model\Exception;
+namespace Recode\Ecommerce\Core\ProductCatalog\Model\Exception;
 
-use Combee\Core\Shared\DataObject\Price;
-use Combee\Core\Shared\Exception\LogicException;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\Exception\LogicException;
 
 class NegativeOrZeroPriceException extends LogicException
 {

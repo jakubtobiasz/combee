@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Infrastructure\Storage;
+namespace Recode\Ecommerce\Core\Ordering\Infrastructure\Storage;
 
-use Combee\Core\Ordering\Contract\Model\OrderContract;
-use Combee\Core\Ordering\Contract\Storage\CartStorageContract;
-use Combee\Core\Shared\Collection\ArrayCollection;
-use Combee\Core\Shared\Contract\Collection;
-use Combee\Core\Shared\Model\Identifier\OrderIdentifier;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Storage\CartStorageContract;
+use Recode\Ecommerce\Core\Shared\Collection\ArrayCollection;
+use Recode\Ecommerce\Core\Shared\Contract\Collection;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\OrderIdentifier;
 
 class InMemoryCartStorage implements CartStorageContract
 {

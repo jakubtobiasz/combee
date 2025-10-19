@@ -11,6 +11,6 @@ final class ProductCatalogTest extends AbstractComponentTest
 
     protected function getComponentNamespace(): string
     {
-        return 'Combee\Core\ProductCatalog';
+        return 'Recode\Ecommerce\Core\ProductCatalog';
     }
 }

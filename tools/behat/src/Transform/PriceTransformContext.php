@@ -4,8 +4,8 @@ namespace Tools\Behat\Transform;
 
 use Behat\Behat\Context\Context;
 use Behat\Transformation\Transform;
-use Combee\Core\Shared\DataObject\Currency;
-use Combee\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\DataObject\Currency;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
 
 class PriceTransformContext implements Context
 {

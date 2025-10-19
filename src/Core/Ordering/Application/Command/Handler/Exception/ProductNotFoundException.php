@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Application\Command\Handler\Exception;
+namespace Recode\Ecommerce\Core\Ordering\Application\Command\Handler\Exception;
 
-use Combee\Core\Shared\Exception\InvalidArgumentException;
+use Recode\Ecommerce\Core\Shared\Exception\InvalidArgumentException;
 
 class ProductNotFoundException extends InvalidArgumentException
 {

@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Core\Pricing\Integration\Calculator;
 
-use Combee\Core\Pricing\Application\Calculator\DefaultCalculator;
-use Combee\Core\Shared\Contract\Priceable;
-use Combee\Core\Shared\DataObject\Currency;
-use Combee\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Pricing\Application\Calculator\DefaultCalculator;
+use Recode\Ecommerce\Core\Shared\Contract\Priceable;
+use Recode\Ecommerce\Core\Shared\DataObject\Currency;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 

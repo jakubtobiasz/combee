@@ -4,8 +4,8 @@ namespace Tools\Behat\Context\Assert;
 
 use Behat\Behat\Context\Context;
 use Behat\Step\Then;
-use Combee\Core\Ordering\Contract\Model\OrderContract;
-use Combee\Core\Ordering\Contract\Model\OrderItemContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderItemContract;
 use Webmozart\Assert\Assert;
 
 class OrderingAssertContext implements Context

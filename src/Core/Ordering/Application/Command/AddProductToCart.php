@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Application\Command;
+namespace Recode\Ecommerce\Core\Ordering\Application\Command;
 
-use Combee\Core\Ordering\Contract\Command\AddProductToCartContract;
-use Combee\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
-use Combee\Core\Ordering\Model\AddItemStrategy\MergeSameSkuItemsStrategy;
-use Combee\Core\Shared\Exception\InvalidArgumentException;
-use Combee\Core\Shared\Model\Identifier\OrderIdentifier;
+use Recode\Ecommerce\Core\Ordering\Contract\Command\AddProductToCartContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
+use Recode\Ecommerce\Core\Ordering\Model\AddItemStrategy\MergeSameSkuItemsStrategy;
+use Recode\Ecommerce\Core\Shared\Exception\InvalidArgumentException;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\OrderIdentifier;
 
 readonly class AddProductToCart implements AddProductToCartContract
 {

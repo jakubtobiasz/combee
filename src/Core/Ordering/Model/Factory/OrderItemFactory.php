@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Model\Factory;
+namespace Recode\Ecommerce\Core\Ordering\Model\Factory;
 
-use Combee\Core\Ordering\Contract\DataObject\ProductData;
-use Combee\Core\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
-use Combee\Core\Ordering\Contract\Model\OrderItemContract;
-use Combee\Core\Ordering\Model\OrderItem;
-use Combee\Core\Shared\Model\Identifier\OrderItemIdentifier;
+use Recode\Ecommerce\Core\Ordering\Contract\DataObject\ProductData;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderItemContract;
+use Recode\Ecommerce\Core\Ordering\Model\OrderItem;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\OrderItemIdentifier;
 
 final class OrderItemFactory implements OrderItemFactoryContract
 {

@@ -2,9 +2,9 @@
 
 namespace Tests\Unit\Core\Ordering\Model;
 
-use Combee\Core\Ordering\Model\Exception\NegativeOrZeroQuantityException;
-use Combee\Core\Shared\DataObject\Currency;
-use Combee\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Ordering\Model\Exception\NegativeOrZeroQuantityException;
+use Recode\Ecommerce\Core\Shared\DataObject\Currency;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;

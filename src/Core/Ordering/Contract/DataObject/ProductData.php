@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Contract\DataObject;
+namespace Recode\Ecommerce\Core\Ordering\Contract\DataObject;
 
-use Combee\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
 
 interface ProductData
 {

@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Shared\DataObject;
+namespace Recode\Ecommerce\Core\Shared\DataObject;
 
-use Combee\Core\Shared\Exception\InvalidArgumentException;
+use Recode\Ecommerce\Core\Shared\Exception\InvalidArgumentException;
 use Symfony\Component\Intl\Currencies;
 
 class Currency

@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Model;
+namespace Recode\Ecommerce\Core\Ordering\Model;
 
-use Combee\Core\Ordering\Contract\Model\OrderItemContract;
-use Combee\Core\Ordering\Model\Exception\NegativeOrZeroQuantityException;
-use Combee\Core\Shared\Collection\ArrayCollection;
-use Combee\Core\Shared\Contract\Collection;
-use Combee\Core\Shared\Contract\PriceAdjustmentContract;
-use Combee\Core\Shared\DataObject\Price;
-use Combee\Core\Shared\Model\Identifier\OrderItemIdentifier;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderItemContract;
+use Recode\Ecommerce\Core\Ordering\Model\Exception\NegativeOrZeroQuantityException;
+use Recode\Ecommerce\Core\Shared\Collection\ArrayCollection;
+use Recode\Ecommerce\Core\Shared\Contract\Collection;
+use Recode\Ecommerce\Core\Shared\Contract\PriceAdjustmentContract;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\OrderItemIdentifier;
 
 class OrderItem implements OrderItemContract
 {

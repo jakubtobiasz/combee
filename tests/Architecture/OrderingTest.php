@@ -11,6 +11,6 @@ final class OrderingTest extends AbstractComponentTest
 
     protected function getComponentNamespace(): string
     {
-        return 'Combee\Core\Ordering';
+        return 'Recode\Ecommerce\Core\Ordering';
     }
 }

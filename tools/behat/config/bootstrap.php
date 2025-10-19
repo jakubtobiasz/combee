@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-use Combee\Core\Ordering\Application\Command\Handler\AddProductToCartHandler;
-use Combee\Core\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
-use Combee\Core\Ordering\Contract\Provider\ProductDataProviderContract;
-use Combee\Core\Ordering\Contract\Storage\CartStorageContract;
-use Combee\Core\Ordering\Infrastructure\Storage\InMemoryCartStorage;
-use Combee\Core\Ordering\Model\Factory\OrderItemFactory;
-use Combee\Core\ProductCatalog\Contract\Storage\ProductsStorageContract;
-use Combee\Core\ProductCatalog\Infrastructure\Storage\InMemoryProductsStorage;
-use Combee\Core\ProductCatalog\Integration\Ordering\Provider\ProductDataProvider;
+use Recode\Ecommerce\Core\Ordering\Application\Command\Handler\AddProductToCartHandler;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Provider\ProductDataProviderContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Storage\CartStorageContract;
+use Recode\Ecommerce\Core\Ordering\Infrastructure\Storage\InMemoryCartStorage;
+use Recode\Ecommerce\Core\Ordering\Model\Factory\OrderItemFactory;
+use Recode\Ecommerce\Core\ProductCatalog\Contract\Storage\ProductsStorageContract;
+use Recode\Ecommerce\Core\ProductCatalog\Infrastructure\Storage\InMemoryProductsStorage;
+use Recode\Ecommerce\Core\ProductCatalog\Integration\Ordering\Provider\ProductDataProvider;
 use Illuminate\Container\Container;
 use Tools\Behat\Service\SharedStorage;
 use Tools\Behat\Service\SharedStorageContract;

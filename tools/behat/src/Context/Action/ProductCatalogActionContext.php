@@ -4,10 +4,10 @@ namespace Tools\Behat\Context\Action;
 
 use Behat\Behat\Context\Context;
 use Behat\Step\When;
-use Combee\Core\Ordering\Application\Command\AddProductToCart;
-use Combee\Core\Ordering\Application\Command\Handler\AddProductToCartHandler;
-use Combee\Core\Ordering\Contract\Model\OrderContract;
-use Combee\Core\ProductCatalog\Contract\Model\ProductContract;
+use Recode\Ecommerce\Core\Ordering\Application\Command\AddProductToCart;
+use Recode\Ecommerce\Core\Ordering\Application\Command\Handler\AddProductToCartHandler;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderContract;
+use Recode\Ecommerce\Core\ProductCatalog\Contract\Model\ProductContract;
 
 class ProductCatalogActionContext implements Context
 {

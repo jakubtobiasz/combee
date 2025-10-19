@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Application\Command\Handler;
+namespace Recode\Ecommerce\Core\Ordering\Application\Command\Handler;
 
-use Combee\Core\Ordering\Application\Command\Handler\Exception\CartNotFoundException;
-use Combee\Core\Ordering\Application\Command\Handler\Exception\ProductNotFoundException;
-use Combee\Core\Ordering\Contract\Command\AddProductToCartContract;
-use Combee\Core\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
-use Combee\Core\Ordering\Contract\Provider\ProductDataProviderContract;
-use Combee\Core\Ordering\Contract\Storage\CartStorageContract;
+use Recode\Ecommerce\Core\Ordering\Application\Command\Handler\Exception\CartNotFoundException;
+use Recode\Ecommerce\Core\Ordering\Application\Command\Handler\Exception\ProductNotFoundException;
+use Recode\Ecommerce\Core\Ordering\Contract\Command\AddProductToCartContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Provider\ProductDataProviderContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Storage\CartStorageContract;
 
 readonly class AddProductToCartHandler
 {

@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Core\Ordering\Model;
 
-use Combee\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
-use Combee\Core\Ordering\Contract\Model\Exception\OrderSealedException;
-use Combee\Core\Ordering\Contract\Model\OrderItemContract;
-use Combee\Core\Shared\Collection\ArrayCollection;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\Exception\OrderSealedException;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderItemContract;
+use Recode\Ecommerce\Core\Shared\Collection\ArrayCollection;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Tests\Helper\MotherObject\OrderItemMother;

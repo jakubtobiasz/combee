@@ -4,8 +4,8 @@ namespace Tools\Behat\Transform;
 
 use Behat\Behat\Context\Context;
 use Behat\Transformation\Transform;
-use Combee\Core\ProductCatalog\Contract\Model\ProductContract;
-use Combee\Core\ProductCatalog\Contract\Storage\ProductsStorageContract;
+use Recode\Ecommerce\Core\ProductCatalog\Contract\Model\ProductContract;
+use Recode\Ecommerce\Core\ProductCatalog\Contract\Storage\ProductsStorageContract;
 
 class ProductCatalogTransformContext implements Context
 {

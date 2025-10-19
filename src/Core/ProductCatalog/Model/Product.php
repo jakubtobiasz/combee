@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\ProductCatalog\Model;
+namespace Recode\Ecommerce\Core\ProductCatalog\Model;
 
-use Combee\Core\ProductCatalog\Contract\Model\ProductContract;
-use Combee\Core\ProductCatalog\Model\Exception\NegativeOrZeroPriceException;
-use Combee\Core\Shared\DataObject\Price;
-use Combee\Core\Shared\Model\Identifier\ProductIdentifier;
+use Recode\Ecommerce\Core\ProductCatalog\Contract\Model\ProductContract;
+use Recode\Ecommerce\Core\ProductCatalog\Model\Exception\NegativeOrZeroPriceException;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\ProductIdentifier;
 
 class Product implements ProductContract
 {

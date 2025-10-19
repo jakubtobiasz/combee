@@ -2,9 +2,9 @@
 
 namespace Tests\Helper\MotherObject;
 
-use Combee\Core\Shared\Contract\PriceAdjustmentContract;
-use Combee\Core\Shared\DataObject\Currency;
-use Combee\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\Contract\PriceAdjustmentContract;
+use Recode\Ecommerce\Core\Shared\DataObject\Currency;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
 
 class PriceAdjustmentMother
 {

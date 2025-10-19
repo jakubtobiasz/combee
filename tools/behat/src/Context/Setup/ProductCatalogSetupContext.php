@@ -4,8 +4,8 @@ namespace Tools\Behat\Context\Setup;
 
 use Behat\Behat\Context\Context;
 use Behat\Step\Given;
-use Combee\Core\ProductCatalog\Contract\Storage\ProductsStorageContract;
-use Combee\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\ProductCatalog\Contract\Storage\ProductsStorageContract;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
 use Tests\Helper\MotherObject\ProductMother;
 
 class ProductCatalogSetupContext implements Context

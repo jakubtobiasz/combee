@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Contract\Model;
+namespace Recode\Ecommerce\Core\Ordering\Contract\Model;
 
-use Combee\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
-use Combee\Core\Shared\Contract\Collection;
-use Combee\Core\Shared\Model\Identifier\OrderIdentifier;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
+use Recode\Ecommerce\Core\Shared\Contract\Collection;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\OrderIdentifier;
 
 interface OrderContract
 {

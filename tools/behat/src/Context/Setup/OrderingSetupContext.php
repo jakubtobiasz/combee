@@ -4,7 +4,7 @@ namespace Tools\Behat\Context\Setup;
 
 use Behat\Behat\Context\Context;
 use Behat\Step\Given;
-use Combee\Core\Ordering\Contract\Storage\CartStorageContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Storage\CartStorageContract;
 use Tests\Helper\MotherObject\OrderMother;
 use Tools\Behat\Service\SharedStorageContract;
 

@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\ProductCatalog\Contract\Model;
+namespace Recode\Ecommerce\Core\ProductCatalog\Contract\Model;
 
-use Combee\Core\Shared\Contract\Priceable;
-use Combee\Core\Shared\Model\Identifier\ProductIdentifier;
+use Recode\Ecommerce\Core\Shared\Contract\Priceable;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\ProductIdentifier;
 
 interface ProductContract extends Priceable
 {

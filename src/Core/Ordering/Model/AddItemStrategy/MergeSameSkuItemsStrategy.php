@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Model\AddItemStrategy;
+namespace Recode\Ecommerce\Core\Ordering\Model\AddItemStrategy;
 
-use Combee\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
-use Combee\Core\Ordering\Contract\Model\OrderItemContract;
-use Combee\Core\Shared\Contract\Collection;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderItemContract;
+use Recode\Ecommerce\Core\Shared\Contract\Collection;
 
 final readonly class MergeSameSkuItemsStrategy implements AddItemStrategyContract
 {

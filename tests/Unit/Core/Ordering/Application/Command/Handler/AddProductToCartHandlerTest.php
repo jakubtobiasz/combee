@@ -2,19 +2,19 @@
 
 namespace Tests\Unit\Core\Ordering\Application\Command\Handler;
 
-use Combee\Core\Ordering\Application\Command\AddProductToCart;
-use Combee\Core\Ordering\Application\Command\Handler\AddProductToCartHandler;
-use Combee\Core\Ordering\Application\Command\Handler\Exception\ProductNotFoundException;
-use Combee\Core\Ordering\Contract\DataObject\ProductData;
-use Combee\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
-use Combee\Core\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
-use Combee\Core\Ordering\Contract\Model\OrderContract;
-use Combee\Core\Ordering\Contract\Model\OrderItemContract;
-use Combee\Core\Ordering\Contract\Provider\ProductDataProviderContract;
-use Combee\Core\Ordering\Contract\Storage\CartStorageContract;
-use Combee\Core\Shared\DataObject\Currency;
-use Combee\Core\Shared\DataObject\Price;
-use Combee\Core\Shared\Model\Identifier\OrderIdentifier;
+use Recode\Ecommerce\Core\Ordering\Application\Command\AddProductToCart;
+use Recode\Ecommerce\Core\Ordering\Application\Command\Handler\AddProductToCartHandler;
+use Recode\Ecommerce\Core\Ordering\Application\Command\Handler\Exception\ProductNotFoundException;
+use Recode\Ecommerce\Core\Ordering\Contract\DataObject\ProductData;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrategyContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\Factory\OrderItemFactoryContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderItemContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Provider\ProductDataProviderContract;
+use Recode\Ecommerce\Core\Ordering\Contract\Storage\CartStorageContract;
+use Recode\Ecommerce\Core\Shared\DataObject\Currency;
+use Recode\Ecommerce\Core\Shared\DataObject\Price;
+use Recode\Ecommerce\Core\Shared\Model\Identifier\OrderIdentifier;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
