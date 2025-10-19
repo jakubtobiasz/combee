@@ -4,7 +4,7 @@ version: '3'
 
 vars:
   RUN_CMD:
-    sh: 'if [ -f /.dockerenv ]; then echo ""; else echo "docker compose exec php "; fi'
+    sh: 'if [ -f /.dockerenv ] || [ "$CI" = "true" ] || [ "$GITHUB_ACTIONS" = "true" ]; then echo ""; else echo "docker compose exec php "; fi'
 
 tasks:
   cs:
@@ -22,9 +22,14 @@ tasks:
       - '{{.RUN_CMD}}tools/bin/phpstan analyse --memory-limit=256M'
     silent: true
 
-  phpunit:
+  units:
     cmds:
-      - '{{.RUN_CMD}}tools/bin/paratest'
+      - '{{.RUN_CMD}}tools/pest/vendor/bin/pest'
+    silent: true
+
+  coverage:
+    cmds:
+      - '{{.RUN_CMD}}tools/pest/vendor/bin/pest --coverage --min=70'
     silent: true
 
   infection:
@@ -47,7 +52,8 @@ tasks:
     cmds:
       - task: cs
       - task: phpstan
-      - task: phpunit
+      - task: units
+      - task: coverage
       - task: infection
       - task: behat
     silent: true

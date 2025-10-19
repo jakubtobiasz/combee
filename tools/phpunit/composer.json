@@ -1,9 +1,0 @@
-{
-  "require-dev": {
-    "brianium/paratest": "*",
-    "phpunit/phpunit": "*"
-  },
-  "config": {
-    "bin-dir": "../bin"
-  }
-}

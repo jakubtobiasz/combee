@@ -12,7 +12,7 @@ parameters:
         - src
         - tests
     bootstrapFiles:
-        - tools/phpunit/vendor/autoload.php
+        - tools/pest/vendor/autoload.php
     phpLanguageExtensions:
         mode: namespace
         testNamespace: 'Tests'

@@ -37,14 +37,14 @@
     "update-tools": [
       "@update-tools:behat",
       "@update-tools:infection",
+      "@update-tools:pest",
       "@update-tools:php-cs-fixer",
-      "@update-tools:phpstan",
-      "@update-tools:phpunit"
+      "@update-tools:phpstan"
     ],
     "update-tools:behat": "composer update -n -d tools/behat",
     "update-tools:infection": "composer update -n -d tools/infection",
+    "update-tools:pest": "composer update -n -d tools/pest",
     "update-tools:php-cs-fixer": "composer update -n -d tools/php-cs-fixer",
-    "update-tools:phpstan": "composer update -n -d tools/phpstan",
-    "update-tools:phpunit": "composer update -n -d tools/phpunit"
+    "update-tools:phpstan": "composer update -n -d tools/phpstan"
   }
 }

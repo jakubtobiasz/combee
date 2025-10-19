@@ -17,6 +17,6 @@
   },
   "phpUnit": {
     "configDir": ".",
-    "customPath": "tools/bin/phpunit"
+    "customPath": "tools/pest/vendor/bin/phpunit"
   }
 }
