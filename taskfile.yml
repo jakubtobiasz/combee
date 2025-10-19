@@ -2,35 +2,40 @@
 
 version: '3'
 
+vars:
+  RUN_CMD:
+    sh: 'if [ -f /.dockerenv ]; then echo ""; else echo "docker compose exec php "; fi'
+
 tasks:
   cs:
     cmds:
-      - tools/bin/php-cs-fixer check
+      # The {{.RUN_CMD}} variable is prepended to the command.
+      - '{{.RUN_CMD}}tools/bin/php-cs-fixer check'
     silent: true
 
   cs.fix:
     cmds:
-      - tools/bin/php-cs-fixer fix
+      - '{{.RUN_CMD}}tools/bin/php-cs-fixer fix'
     silent: true
 
   phpstan:
     cmds:
-      - tools/bin/phpstan analyse --memory-limit=256M
+      - '{{.RUN_CMD}}tools/bin/phpstan analyse --memory-limit=256M'
     silent: true
 
   phpunit:
     cmds:
-      - tools/bin/phpunit
+      - '{{.RUN_CMD}}tools/bin/phpunit'
     silent: true
 
   infection:
     cmds:
-      - tools/bin/infection
+      - '{{.RUN_CMD}}tools/bin/infection'
     silent: true
 
   behat:
     cmds:
-      - tools/bin/behat -f progress
+      - '{{.RUN_CMD}}tools/bin/behat -f progress'
     silent: true
 
   cq:

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Pricing\Calculator;
+namespace Combee\Core\Pricing\Application\Calculator;
 
 use Combee\Core\Pricing\Contract\CalculatorContract;
 use Combee\Core\Pricing\Contract\Exception\NoSupportedCalculatorException;

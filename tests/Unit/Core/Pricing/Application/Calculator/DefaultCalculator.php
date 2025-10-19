@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Core\Pricing\Integration\Calculator;
 
-use Combee\Core\Pricing\Calculator\DefaultCalculator;
+use Combee\Core\Pricing\Application\Calculator\DefaultCalculator;
 use Combee\Core\Shared\Contract\Priceable;
 use Combee\Core\Shared\DataObject\Currency;
 use Combee\Core\Shared\DataObject\Price;

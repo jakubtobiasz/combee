@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\Ordering\Storage;
+namespace Combee\Core\Ordering\Infrastructure\Storage;
 
 use Combee\Core\Ordering\Contract\Model\OrderContract;
 use Combee\Core\Ordering\Contract\Storage\CartStorageContract;

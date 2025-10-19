@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Combee\Core\ProductCatalog\Storage;
+namespace Combee\Core\ProductCatalog\Infrastructure\Storage;
 
 use Combee\Core\ProductCatalog\Contract\Model\ProductContract;
 use Combee\Core\ProductCatalog\Contract\Storage\ProductsStorageContract;

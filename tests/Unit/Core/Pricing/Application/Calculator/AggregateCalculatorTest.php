@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Core\Pricing\Integration\Calculator;
 
-use Combee\Core\Pricing\Calculator\AggregateCalculator;
+use Combee\Core\Pricing\Application\Calculator\AggregateCalculator;
 use Combee\Core\Pricing\Contract\CalculatorContract;
 use Combee\Core\Pricing\Contract\Exception\NoSupportedCalculatorException;
 use Combee\Core\Shared\Contract\Priceable;
