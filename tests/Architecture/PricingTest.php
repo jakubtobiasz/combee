@@ -2,15 +2,15 @@
 
 namespace Tests\Architecture;
 
-final class OrderingTest extends AbstractComponentTest
+class PricingTest extends AbstractComponentTest
 {
     protected function getComponentName(): string
     {
-        return 'Ordering';
+        return 'Pricing';
     }
 
     protected function getComponentNamespace(): string
     {
-        return 'Combee\Core\Ordering';
+        return 'Combee\Core\Pricing';
     }
 }
