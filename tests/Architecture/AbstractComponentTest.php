@@ -43,7 +43,7 @@ abstract class AbstractComponentTest
             ->classes(
                 Selector::inNamespace($this->getComponentNamespace()),
                 Selector::inNamespace('Combee\Core\Shared'),
-                Selector::inNamespace('/^Combee', true),
+                Selector::inNamespace('/^Combee\\\\Core\\\\\w+\\\\Contract.*/', true),
             )
             ->because(sprintf('%s integration layer should only depend on specific types', $this->getComponentName()))
         ;
