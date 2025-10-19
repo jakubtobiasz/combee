@@ -24,5 +24,17 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
-      - name: Run task
-        run: task ci
+      - name: Coding Standard
+        run: tools/bin/php-cs-fixer check
+
+      - name: Static Analysis
+        run: tools/bin/phpstan
+
+      - name: Unit Tests
+        run: tools/bin/phpunit
+
+      - name: Infection
+        run: tools/bin/infection
+
+      - name: Behat
+        run: tools/bin/behat

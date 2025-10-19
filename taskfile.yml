@@ -9,7 +9,6 @@ vars:
 tasks:
   cs:
     cmds:
-      # The {{.RUN_CMD}} variable is prepended to the command.
       - '{{.RUN_CMD}}tools/bin/php-cs-fixer check'
     silent: true
 
