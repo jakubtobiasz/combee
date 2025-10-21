@@ -18,6 +18,7 @@ Recode Ecommerce is a modern, modular e-commerce library built with PHP 8.4. It 
 
 - PHP 8.4 or higher
 - Composer
+- [Task](https://taskfile.dev) (recommended for development)
 
 ## Installation
 
@@ -28,12 +29,15 @@ composer require recode/ecommerce
 ## Core Modules
 
 ### Product Catalog
+
 Manages product data, storage, and retrieval with built-in validation.
 
 ### Ordering
+
 Handles order creation, item management, and order processing with configurable strategies.
 
 ### Pricing
+
 Provides flexible pricing calculations with support for custom calculators.
 
 ## Development
@@ -54,23 +58,35 @@ The project uses Pest for unit testing and Behat for behavior-driven development
 
 ```bash
 # Run unit tests
-./tools/pest/vendor/bin/pest
+task units
 
 # Run Behat tests
-./tools/behat/vendor/bin/behat
+task behat
+
+# Run unit tests with coverage
+task coverage
 ```
 
 ### Code Quality
 
 ```bash
-# Run static analysis
-./tools/phpstan/vendor/bin/phpstan analyse
+# Check code style
+task cs
 
 # Fix code style
-./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix
+task cs.fix
+
+# Run static analysis
+task phpstan
 
 # Run mutation tests
-./tools/infection/vendor/bin/infection
+task infection
+
+# Run all code quality checks
+task cq
+
+# Run complete CI suite (quality + tests)
+task ci
 ```
 
 ### Docker
@@ -99,10 +115,6 @@ This project maintains high standards for code quality:
 - Code style must conform to PHP-CS-Fixer rules
 - Unit tests are required for new features
 - Mutation testing coverage is monitored with Infection
-
-## Author
-
-Jacob Tobiasz (jacob@alphpaca.io)
 
 ## License
 
