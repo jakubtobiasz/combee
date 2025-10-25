@@ -2,6 +2,7 @@
 
 namespace Recode\Ecommerce\Core\Ordering\Model;
 
+use Recode\Ecommerce\Core\Ordering\Contract\Exception\NegativeOrZeroUnitPriceException;
 use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderItemContract;
 use Recode\Ecommerce\Core\Ordering\Model\Exception\NegativeOrZeroQuantityException;
 use Recode\Ecommerce\Core\Shared\Collection\ArrayCollection;
@@ -23,21 +24,45 @@ class OrderItem implements OrderItemContract
      * @param Collection<array-key, PriceAdjustmentContract> $priceAdjustments
      */
     public function __construct(
-        public readonly OrderItemIdentifier $uuid,
-        public readonly string $productSku,
-        public readonly Price $unitPrice,
-        public int $quantity {
-            get => $this->quantity;
-            set {
-                NegativeOrZeroQuantityException::throwIfNegativeOrZero($value);
-
-                $this->quantity = $value;
-                $this->forcePriceRecalculation = true;
-            }
-        },
+        OrderItemIdentifier $uuid,
+        string $productSku,
+        Price $unitPrice,
+        int $quantity,
         Collection $priceAdjustments = new ArrayCollection(),
     ) {
+        $this->uuid = $uuid;
+        $this->productSku = $productSku;
+        $this->unitPrice = $unitPrice;
+        $this->quantity = $quantity;
         $this->_priceAdjustments = $priceAdjustments;
+    }
+
+    public OrderItemIdentifier $uuid {
+        get => $this->uuid;
+    }
+
+    public string $productSku {
+        get => $this->productSku;
+    }
+
+    public int $quantity {
+        get => $this->quantity;
+        set {
+            NegativeOrZeroQuantityException::throwIfNegativeOrZero($value);
+
+            $this->quantity = $value;
+            $this->forcePriceRecalculation = true;
+        }
+    }
+
+    public Price $unitPrice {
+        get => $this->unitPrice;
+        set {
+            NegativeOrZeroUnitPriceException::throwIfNotPositive($value);
+
+            $this->unitPrice = $value;
+            $this->forcePriceRecalculation = true;
+        }
     }
 
     public Price $price {
@@ -47,6 +72,12 @@ class OrderItem implements OrderItemContract
             }
 
             return $this->price = $this->calculatePrice();
+        }
+        set {
+            NegativeOrZeroUnitPriceException::throwIfNotPositive($value);
+
+            $this->price = $value;
+            $this->forcePriceRecalculation = true;
         }
     }
 

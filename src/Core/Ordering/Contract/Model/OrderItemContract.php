@@ -13,7 +13,7 @@ interface OrderItemContract
 
     public string $productSku { get; }
 
-    public Price $unitPrice { get; }
+    public Price $unitPrice { get; set; }
 
     public int $quantity { get; set; }
 

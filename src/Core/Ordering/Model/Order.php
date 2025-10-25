@@ -6,6 +6,7 @@ use Recode\Ecommerce\Core\Ordering\Contract\Model\AddItemStrategy\AddItemStrateg
 use Recode\Ecommerce\Core\Ordering\Contract\Model\Exception\OrderSealedException;
 use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderContract;
 use Recode\Ecommerce\Core\Ordering\Contract\Model\OrderItemContract;
+use Recode\Ecommerce\Core\Ordering\Model\AddItemStrategy\MergeSameSkuItemsStrategy;
 use Recode\Ecommerce\Core\Shared\Contract\Collection;
 use Recode\Ecommerce\Core\Shared\Model\Identifier\OrderIdentifier;
 
@@ -36,7 +37,7 @@ class Order implements OrderContract
     ) {
     }
 
-    public function addItem(OrderItemContract $item, AddItemStrategyContract $addItemStrategy): void
+    public function addItem(OrderItemContract $item, AddItemStrategyContract $addItemStrategy = new MergeSameSkuItemsStrategy()): void
     {
         OrderSealedException::throwIfTrue($this->isSealed);
 
